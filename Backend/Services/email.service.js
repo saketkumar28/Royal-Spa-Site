@@ -1,4 +1,7 @@
 // backend/services/email.service.js
+const dns = require("dns");
+dns.setDefaultResultOrder("ipv4first");
+
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
