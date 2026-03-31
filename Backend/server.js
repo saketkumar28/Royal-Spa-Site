@@ -71,7 +71,7 @@ mongoose
 
 // ─── SEED FUNCTIONS ───────────────────────────────────────────────────────────
 async function seedAdminUser() {
-  const User = require("./models/User.model");
+  const User = require("./Models/User.model.js");
   const bcrypt = require("bcryptjs");
   const existing = await User.findOne({ email: process.env.ADMIN_EMAIL });
   if (!existing) {
