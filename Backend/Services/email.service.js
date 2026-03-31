@@ -3,15 +3,13 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST || "smtp.gmail.com",
-  port: process.env.EMAIL_PORT || 587,
-  secure: false,
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // This MUST be true for port 465
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false, // <-- THIS IS THE MAGIC LINE FOR RENDER
   },
 });
 
