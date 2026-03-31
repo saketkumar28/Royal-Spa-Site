@@ -151,3 +151,4 @@ async function sendAdminNotification({
     console.error("❌ FAILED to send admin email: ", error.message);
   }
 }
+module.exports = { sendBookingConfirmation, sendAdminNotification };
