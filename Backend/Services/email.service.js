@@ -102,6 +102,7 @@ async function sendBookingConfirmation({
 }
 
 // New booking notification to admin
+// New booking notification to admin
 async function sendAdminNotification({
   clientName,
   clientEmail,
@@ -118,32 +119,35 @@ async function sendAdminNotification({
     month: "long",
   });
 
-  await transporter.sendMail({
-    from: `"Booking System" <${process.env.EMAIL_USER}>`,
-    to: process.env.ADMIN_EMAIL,
-    subject: `New Booking: ${serviceName} — ${dateStr} at ${timeSlot}`,
-    html: `
-      <div style="font-family:Arial,sans-serif;padding:20px;">
-        <h2>New Booking Received</h2>
-        <table style="border-collapse:collapse;width:100%;">
-          ${[
-            ["Client", clientName],
-            ["Email", clientEmail],
-            ["Phone", clientPhone],
-            ["Service", serviceName],
-            ["Date", dateStr],
-            ["Time", timeSlot],
-          ]
-            .map(
-              ([l, v]) =>
-                `<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">${l}</td><td style="padding:8px;border:1px solid #ddd;">${v}</td></tr>`,
-            )
-            .join("")}
-        </table>
-        <p style="margin-top:16px;"><a href="${process.env.FRONTEND_URL}/admin">View in Admin Dashboard →</a></p>
-      </div>
-    `,
-  });
+  try {
+    await transporter.sendMail({
+      from: `"Booking System" <${process.env.EMAIL_USER}>`,
+      to: process.env.ADMIN_EMAIL,
+      subject: `New Booking: ${serviceName} — ${dateStr} at ${timeSlot}`,
+      html: `
+        <div style="font-family:Arial,sans-serif;padding:20px;">
+          <h2>New Booking Received</h2>
+          <table style="border-collapse:collapse;width:100%;">
+            ${[
+              ["Client", clientName],
+              ["Email", clientEmail],
+              ["Phone", clientPhone],
+              ["Service", serviceName],
+              ["Date", dateStr],
+              ["Time", timeSlot],
+            ]
+              .map(
+                ([l, v]) =>
+                  `<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">${l}</td><td style="padding:8px;border:1px solid #ddd;">${v}</td></tr>`,
+              )
+              .join("")}
+          </table>
+          <p style="margin-top:16px;"><a href="${process.env.FRONTEND_URL}/admin">View in Admin Dashboard →</a></p>
+        </div>
+      `,
+    });
+    console.log("👑 Admin notification sent");
+  } catch (error) {
+    console.error("❌ FAILED to send admin email: ", error.message);
+  }
 }
-
-module.exports = { sendBookingConfirmation, sendAdminNotification };
