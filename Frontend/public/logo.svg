@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" width="680" height="340">
+  <rect width="680" height="340" fill="#0A0A0A"/>
+
+  <!-- Horizontal rule with diamond -->
+  <line x1="100" y1="178" x2="296" y2="178" stroke="#C9A84C" stroke-width="0.8" opacity="0.7"/>
+  <line x1="384" y1="178" x2="580" y2="178" stroke="#C9A84C" stroke-width="0.8" opacity="0.7"/>
+  <rect x="334" y="172" width="12" height="12" fill="#C9A84C" transform="rotate(45 340 178)"/>
+
+  <!-- Lower rule -->
+  <line x1="100" y1="210" x2="580" y2="210" stroke="#C9A84C" stroke-width="0.5" opacity="0.35"/>
+
+  <!-- THE -->
+  <text x="340" y="62" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="15" font-weight="400"
+    fill="#C9A84C" letter-spacing="10">T H E</text>
+
+  <!-- ROYAL -->
+  <text x="340" y="158" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="90" font-weight="700"
+    fill="#C9A84C" letter-spacing="6">ROYAL</text>
+
+  <!-- SALON -->
+  <text x="340" y="246" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="26" font-weight="400"
+    fill="#C9A84C" letter-spacing="14">S A L O N</text>
+
+  <!-- & Spa -->
+  <text x="340" y="292" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="28" font-style="italic" font-weight="300"
+    fill="#E8C97A" letter-spacing="3">&amp; Spa</text>
+
+  <!-- Tagline -->
+  <text x="340" y="326" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="11" font-weight="400"
+    fill="#C9A84C" letter-spacing="7" opacity="0.7">BEAUTY · WELLNESS · LUXURY</text>
+</svg>
