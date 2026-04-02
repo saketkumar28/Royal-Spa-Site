@@ -154,30 +154,9 @@ export const globalCSS = `
   @media (max-width: 900px) {
     .section { padding: 70px 24px !important; }
     .section-sm { padding: 40px 24px !important; }
-    .container { padding: 0 !important; }
     .hide-mobile { display: none !important; }
 
-    /* Fix grid overflows on tablet */
-    .container > div[style*="grid"] {
-      grid-template-columns: 1fr !important;
-    }
-
-    /* About split layout */
-    div[style*="grid-template-columns: 1fr 1fr"] {
-      grid-template-columns: 1fr !important;
-    }
-
-    /* Services grid */
-    div[style*="minmax(300px"] {
-      grid-template-columns: 1fr !important;
-    }
-
-    /* Stats grid */
-    div[style*="minmax(180px"] {
-      grid-template-columns: 1fr 1fr !important;
-    }
-
-    /* Instagram grid */
+    /* Instagram grid → 2 cols on tablet */
     div[style*="repeat(4, 1fr)"] {
       grid-template-columns: repeat(2, 1fr) !important;
       grid-template-rows: auto !important;
@@ -189,20 +168,14 @@ export const globalCSS = `
 
     /* Page hero */
     .page-hero { min-height: 42vh !important; padding: 120px 24px 60px !important; }
-
-    /* Buttons full width on small screens */
-    .btn-gold, .btn-solid {
-      padding: 13px 28px !important;
-      font-size: 11px !important;
-    }
   }
 
   @media (max-width: 600px) {
+    .section { padding: 56px 18px !important; }
+
     /* Logo scales down on mobile */
     .rh-bar svg { width: 80px !important; height: auto !important; }
-    /* Hero logo */
     section svg[width="320"] { width: 240px !important; height: auto !important; }
-  }
 
     /* Stack all grids to single column */
     div[style*="grid-template-columns"] {
@@ -218,22 +191,12 @@ export const globalCSS = `
     /* Fix hero text overflow */
     h1[style*="clamp"] { word-break: break-word; }
 
-    /* Timeline center on mobile */
-    div[style*="left: 50%; top: 0"] {
-      left: 16px !important;
-    }
-
-    /* Fix booking page step bar overflow */
-    div[style*="max-width: 700px"] {
-      padding: 40px 18px !important;
-    }
-
-    /* Fix booking grid */
+    /* Booking grid */
     div[style*="grid-template-columns: 1fr 1fr"] {
       grid-template-columns: 1fr !important;
     }
 
-    /* Fix contact two column */
+    /* Contact two column */
     div[style*="1fr 1.6fr"] {
       grid-template-columns: 1fr !important;
     }
@@ -244,29 +207,13 @@ export const globalCSS = `
       margin-top: 16px !important;
     }
 
-    /* Journal featured post */
-    div[style*="gridTemplateColumns: 1fr 1fr"][style*="gap: 0"] {
-      grid-template-columns: 1fr !important;
-    }
-
-    /* Admin dashboard sidebar */
-    aside[style*="width: 220"] {
-      width: 100% !important;
-      position: static !important;
-      height: auto !important;
-    }
-
-    main[style*="marginLeft: 220"] {
-      margin-left: 0 !important;
-    }
-
     /* Instagram grid 2 col on mobile */
     div[style*="repeat(4, 1fr)"] {
       grid-template-columns: repeat(2, 1fr) !important;
       grid-auto-rows: 160px !important;
     }
 
-    /* Fix service page filter overflow */
+    /* Service page filter buttons */
     div[style*="justifyContent: center"][style*="flexWrap: wrap"] button {
       padding: 8px 14px !important;
       font-size: 10px !important;
