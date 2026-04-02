@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const GOLD = "#C9A84C";
+const GOLD_L = "#E8C97A";
 const WHITE = "#F5F0E8";
 const MUTED = "#9A9080";
 const BLACK = "#0A0A0A";
@@ -16,6 +17,102 @@ const NAV = [
   { label: "Contact", path: "/contact" },
 ];
 
+// ─── Inline SVG Logo ─────────────────────────────────────────────────────────
+// Fully self-contained — no img src, no public/ file, works on any host
+export function RoyalLogo({ width = 110 }) {
+  const h = Math.round(width * 0.474);
+  return (
+    <svg
+      width={width}
+      height={h}
+      viewBox="0 0 220 104"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", overflow: "visible" }}
+    >
+      <text
+        x="110"
+        y="14"
+        textAnchor="middle"
+        fontFamily="Georgia,'Times New Roman',serif"
+        fontSize="9"
+        fontWeight="400"
+        fill={GOLD}
+        letterSpacing="5"
+      >
+        T H E
+      </text>
+
+      <text
+        x="110"
+        y="54"
+        textAnchor="middle"
+        fontFamily="Georgia,'Times New Roman',serif"
+        fontSize="40"
+        fontWeight="700"
+        fill={GOLD}
+        letterSpacing="3"
+      >
+        ROYAL
+      </text>
+
+      <line
+        x1="18"
+        y1="62"
+        x2="94"
+        y2="62"
+        stroke={GOLD}
+        strokeWidth="0.7"
+        opacity="0.65"
+      />
+      <line
+        x1="126"
+        y1="62"
+        x2="202"
+        y2="62"
+        stroke={GOLD}
+        strokeWidth="0.7"
+        opacity="0.65"
+      />
+      <rect
+        x="106"
+        y="57.5"
+        width="8"
+        height="8"
+        fill={GOLD}
+        transform="rotate(45 110 61.5)"
+      />
+
+      <text
+        x="110"
+        y="82"
+        textAnchor="middle"
+        fontFamily="Georgia,'Times New Roman',serif"
+        fontSize="11"
+        fontWeight="400"
+        fill={GOLD}
+        letterSpacing="8"
+      >
+        S A L O N
+      </text>
+
+      <text
+        x="110"
+        y="100"
+        textAnchor="middle"
+        fontFamily="Georgia,'Times New Roman',serif"
+        fontSize="14"
+        fontStyle="italic"
+        fontWeight="300"
+        fill={GOLD_L}
+        letterSpacing="2"
+      >
+        &amp; Spa
+      </text>
+    </svg>
+  );
+}
+
+// ─── Header Component ─────────────────────────────────────────────────────────
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,69 +138,42 @@ export default function Header() {
   return (
     <>
       <style>{`
-        .royal-desktop { display: flex !important; }
-        .royal-mobile  { display: none  !important; }
+        .rh-desk { display: flex !important; }
+        .rh-mob  { display: none  !important; }
         @media (max-width: 900px) {
-          .royal-desktop { display: none !important; }
-          .royal-mobile  { display: flex !important; }
-          .royal-header  { padding: 14px 20px !important; }
+          .rh-desk { display: none !important; }
+          .rh-mob  { display: flex !important; }
+          .rh-bar  { padding: 12px 20px !important; }
         }
       `}</style>
 
+      {/* ── Navbar ── */}
       <header
-        className="royal-header"
+        className="rh-bar"
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: "18px 48px",
+          padding: "14px 48px",
           background:
-            scrolled || menuOpen ? "rgba(10,10,10,0.98)" : "transparent",
+            scrolled || menuOpen ? "rgba(10,10,10,0.97)" : "transparent",
           backdropFilter: scrolled ? "blur(14px)" : "none",
           borderBottom:
             scrolled && !menuOpen ? "1px solid rgba(201,168,76,0.12)" : "none",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "all 0.4s ease",
+          transition: "background 0.4s, border-color 0.4s",
         }}
       >
-        {/* Logo */}
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <p
-            style={{
-              fontSize: 9,
-              letterSpacing: 6,
-              color: GOLD,
-              fontWeight: 400,
-              textTransform: "uppercase",
-              marginBottom: 2,
-              fontFamily: "'Jost', sans-serif",
-            }}
-          >
-            The Royal
-          </p>
-          <p
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 20,
-              fontWeight: 300,
-              color: WHITE,
-              letterSpacing: 3,
-              margin: 0,
-            }}
-          >
-            Salon & Spa
-          </p>
+        <Link to="/" style={{ textDecoration: "none", lineHeight: 0 }}>
+          <RoyalLogo width={100} />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav
-          className="royal-desktop"
-          style={{ gap: 32, alignItems: "center" }}
-        >
+        {/* Desktop links */}
+        <nav className="rh-desk" style={{ gap: 28, alignItems: "center" }}>
           {NAV.map((n) => (
             <Link
               key={n.path}
@@ -111,12 +181,17 @@ export default function Header() {
               style={{
                 color: pathname === n.path ? GOLD : MUTED,
                 fontSize: 11,
-                letterSpacing: 2,
+                letterSpacing: 2.5,
                 textTransform: "uppercase",
                 fontWeight: 400,
                 textDecoration: "none",
-                transition: "color 0.3s",
                 fontFamily: "'Jost', sans-serif",
+                transition: "color 0.25s",
+                borderBottom:
+                  pathname === n.path
+                    ? `1px solid ${GOLD}`
+                    : "1px solid transparent",
+                paddingBottom: 2,
               }}
             >
               {n.label}
@@ -126,7 +201,7 @@ export default function Header() {
 
         <Link
           to="/booking"
-          className="royal-desktop"
+          className="rh-desk"
           style={{
             background: "transparent",
             border: `1px solid ${GOLD}`,
@@ -138,26 +213,35 @@ export default function Header() {
             textDecoration: "none",
             fontFamily: "'Jost', sans-serif",
             fontWeight: 400,
+            transition: "all 0.3s",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.background = GOLD;
+            e.currentTarget.style.color = BLACK;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = GOLD;
           }}
         >
           Book Now
         </Link>
 
-        {/* Burger button */}
+        {/* Burger */}
         <button
           onClick={() => setMenuOpen((o) => !o)}
-          className="royal-mobile"
+          className="rh-mob"
+          aria-label="Toggle menu"
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
-            padding: "6px",
+            padding: "6px 4px",
             flexDirection: "column",
             gap: 5,
-            alignItems: "center",
+            alignItems: "flex-end",
             justifyContent: "center",
           }}
-          aria-label="Toggle menu"
         >
           <span
             style={{
@@ -166,7 +250,8 @@ export default function Header() {
               height: 1.5,
               background: GOLD,
               borderRadius: 2,
-              transition: "transform 0.35s ease, opacity 0.3s",
+              transformOrigin: "center",
+              transition: "transform 0.35s",
               transform: menuOpen
                 ? "rotate(45deg) translate(4.5px, 4.5px)"
                 : "none",
@@ -179,9 +264,9 @@ export default function Header() {
               height: 1.5,
               background: GOLD,
               borderRadius: 2,
-              transition: "opacity 0.3s, transform 0.3s",
+              transition: "opacity 0.25s, transform 0.3s",
               opacity: menuOpen ? 0 : 1,
-              transform: menuOpen ? "translateX(8px)" : "none",
+              transform: menuOpen ? "translateX(10px)" : "none",
             }}
           />
           <span
@@ -191,7 +276,8 @@ export default function Header() {
               height: 1.5,
               background: GOLD,
               borderRadius: 2,
-              transition: "transform 0.35s ease, opacity 0.3s",
+              transformOrigin: "center",
+              transition: "transform 0.35s",
               transform: menuOpen
                 ? "rotate(-45deg) translate(4.5px, -4.5px)"
                 : "none",
@@ -200,8 +286,9 @@ export default function Header() {
         </button>
       </header>
 
-      {/* Mobile overlay menu */}
+      {/* ── Mobile Overlay Menu ── */}
       <div
+        aria-hidden={!menuOpen}
         style={{
           position: "fixed",
           inset: 0,
@@ -214,82 +301,60 @@ export default function Header() {
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? "all" : "none",
           transition: "opacity 0.35s ease",
-          padding: "100px 40px 60px",
-          gap: 4,
+          overflowY: "auto",
+          padding: "90px 32px 48px",
+          gap: 0,
         }}
       >
-        {/* Logo in overlay */}
-        <div style={{ textAlign: "center", marginBottom: 40 }}>
-          <p
-            style={{
-              fontSize: 10,
-              letterSpacing: 6,
-              color: GOLD,
-              fontWeight: 400,
-              textTransform: "uppercase",
-              marginBottom: 6,
-              fontFamily: "'Jost', sans-serif",
-            }}
-          >
-            The Royal
-          </p>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              marginBottom: 4,
-            }}
-          >
-            <div
-              style={{ flex: 1, height: 1, background: GOLD, opacity: 0.4 }}
-            />
-            <div
-              style={{
-                width: 7,
-                height: 7,
-                background: GOLD,
-                transform: "rotate(45deg)",
-              }}
-            />
-            <div
-              style={{ flex: 1, height: 1, background: GOLD, opacity: 0.4 }}
-            />
-          </div>
-          <p
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 13,
-              fontWeight: 300,
-              color: MUTED,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-            }}
-          >
-            Salon & Spa
-          </p>
+        {/* Logo big in overlay */}
+        <div style={{ marginBottom: 32, textAlign: "center" }}>
+          <RoyalLogo width={170} />
         </div>
 
+        {/* Gold rule */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            width: "80%",
+            maxWidth: 300,
+            marginBottom: 24,
+          }}
+        >
+          <div style={{ flex: 1, height: 1, background: GOLD, opacity: 0.3 }} />
+          <div
+            style={{
+              width: 6,
+              height: 6,
+              background: GOLD,
+              transform: "rotate(45deg)",
+            }}
+          />
+          <div style={{ flex: 1, height: 1, background: GOLD, opacity: 0.3 }} />
+        </div>
+
+        {/* Links */}
         {NAV.map((n, i) => (
           <Link
             key={n.path}
             to={n.path}
             style={{
               color: pathname === n.path ? GOLD : WHITE,
-              fontSize: 28,
-              letterSpacing: 4,
+              fontSize: 26,
+              letterSpacing: 5,
               textTransform: "uppercase",
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 300,
               textDecoration: "none",
-              padding: "12px 0",
+              padding: "13px 0",
               display: "block",
               textAlign: "center",
-              opacity: menuOpen ? 1 : 0,
-              transform: menuOpen ? "translateY(0)" : "translateY(16px)",
-              transition: `opacity 0.4s ease ${i * 0.07}s, transform 0.4s ease ${i * 0.07}s`,
-              borderBottom: "1px solid rgba(201,168,76,0.08)",
               width: "100%",
+              borderBottom: "1px solid rgba(201,168,76,0.08)",
+              opacity: menuOpen ? 1 : 0,
+              transform: menuOpen ? "translateY(0)" : "translateY(14px)",
+              transition: `opacity 0.4s ease ${i * 0.06}s, transform 0.4s ease ${i * 0.06}s`,
             }}
           >
             {n.label}
@@ -302,17 +367,17 @@ export default function Header() {
             marginTop: 32,
             background: GOLD,
             color: BLACK,
-            padding: "15px 52px",
+            padding: "15px 56px",
             fontSize: 11,
             letterSpacing: 4,
             textTransform: "uppercase",
             textDecoration: "none",
             fontFamily: "'Jost', sans-serif",
             fontWeight: 500,
-            display: "block",
+            display: "inline-block",
             textAlign: "center",
             opacity: menuOpen ? 1 : 0,
-            transition: `opacity 0.4s ease ${NAV.length * 0.07 + 0.1}s`,
+            transition: `opacity 0.4s ease ${NAV.length * 0.06 + 0.12}s`,
           }}
         >
           Book Now

@@ -1,5 +1,5 @@
 // src/pages/HomePage.jsx
-import Header from "../Components/Header.jsx";
+import Header, { RoyalLogo } from "../Components/Header.jsx";
 import Footer from "../Components/Footer.jsx";
 import {
   GOLD,
@@ -78,23 +78,19 @@ function HeroSection() {
         <div style={{ width: 60, height: 1, background: GOLD, opacity: 0.5 }} />
       </div>
 
-      <h1
-        className="serif fade-up"
+      <div
+        className="fade-up"
         style={{
-          fontSize: "clamp(52px, 8vw, 96px)",
-          fontWeight: 300,
-          lineHeight: 1.08,
-          color: WHITE,
-          marginBottom: 8,
           animationDelay: "0.25s",
           opacity: 0,
-          fontFamily: "'Cormorant Garamond', serif",
+          marginBottom: 8,
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        The Royal
-        <br />
-        <span className="gold-text">Salon & Spa</span>
-      </h1>
+        <RoyalLogo width={320} />
+      </div>
 
       <p
         className="fade-up"

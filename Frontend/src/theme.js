@@ -198,7 +198,11 @@ export const globalCSS = `
   }
 
   @media (max-width: 600px) {
-    .section { padding: 56px 18px !important; }
+    /* Logo scales down on mobile */
+    .rh-bar svg { width: 80px !important; height: auto !important; }
+    /* Hero logo */
+    section svg[width="320"] { width: 240px !important; height: auto !important; }
+  }
 
     /* Stack all grids to single column */
     div[style*="grid-template-columns"] {
