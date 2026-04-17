@@ -21,7 +21,7 @@ const INFO = [
     label: "Address",
     value: "Kothaguda, Hyderabad - 500081, Telangana",
   },
-  { icon: "✦", label: "Phone", value: "+91 XXXXX XXXXX\nCall or WhatsApp" },
+  { icon: "✦", label: "Phone", value: "+91 9392211285\nCall or WhatsApp" },
   {
     icon: "❋",
     label: "Email",
