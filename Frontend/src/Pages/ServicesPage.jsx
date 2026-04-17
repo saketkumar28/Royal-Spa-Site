@@ -8,101 +8,137 @@ import { serviceAPI } from "../Services/api.js";
 import { GOLD, WHITE, MUTED, SURFACE, SURFACE2, BLACK } from "../theme.js";
 
 const STATIC_SERVICES = [
+  // Classic Massages
+  {
+    _id: "c1",
+    name: "Head Massage",
+    category: "Classic Massage",
+    duration: "30",
+    price: "₹500",
+    description:
+      "Professional head massage treatment by our expert therapists.",
+    icon: "💆‍♀️",
+  },
+  {
+    _id: "c2",
+    name: "Foot Massage",
+    category: "Classic Massage",
+    duration: "30",
+    price: "₹700",
+    description: "Relaxing foot massage to relieve stress and tension.",
+    icon: "👣",
+  },
+  {
+    _id: "c3",
+    name: "Legs and Hands Massage",
+    category: "Classic Massage",
+    duration: "45",
+    price: "₹1,000",
+    description: "Targeted professional treatment for legs and hands.",
+    icon: "✨",
+  },
+  {
+    _id: "c4",
+    name: "Back Massage",
+    category: "Classic Massage",
+    duration: "45",
+    price: "₹1,000",
+    description: "Relieve upper and lower back pain with expert therapy.",
+    icon: "💆‍♂️",
+  },
+  {
+    _id: "c5",
+    name: "Basic Massage",
+    category: "Classic Massage",
+    duration: "60",
+    price: "₹1,500",
+    description: "A classic full body massage to melt away daily stress.",
+    icon: "❋",
+    popular: true,
+  },
+
+  // Signature Massages
   {
     _id: "s1",
-    name: "Royal Signature Facial",
-    category: "Facial",
-    duration: 90,
-    price: 4500,
+    name: "Swedish Massage",
+    category: "Signature Massage",
+    duration: "45-90",
+    price: "From ₹1,500",
     description:
-      "A bespoke facial using 24k gold serum and diamond dust to restore radiance and youthfulness. Includes deep cleanse, exfoliation, masque and LED therapy.",
+      "Exclusively crafted for you. 45 Mins: ₹1,500 | 60 Mins: ₹2,000 | 90 Mins: ₹2,500.",
     icon: "✦",
-    popular: true,
   },
   {
     _id: "s2",
-    name: "Hot Stone Therapy",
-    category: "Massage",
-    duration: 75,
-    price: 3800,
+    name: "Normal Cream Massage",
+    category: "Signature Massage",
+    duration: "45-90",
+    price: "From ₹1,500",
     description:
-      "Volcanic basalt stones heated to therapeutic temperature melt away tension and restore your body's natural energy flow. Deeply grounding and restorative.",
+      "Smooth and relaxing cream massage. 45 Mins: ₹1,500 | 60 Mins: ₹2,000 | 90 Mins: ₹2,500.",
     icon: "◈",
   },
   {
     _id: "s3",
-    name: "Aromatherapy Massage",
-    category: "Massage",
-    duration: 60,
-    price: 3200,
+    name: "Aroma Massage",
+    category: "Signature Massage",
+    duration: "45-90",
+    price: "From ₹2,000",
     description:
-      "Custom blended essential oils with Swedish technique to rejuvenate mind, body and soul. Choose your mood: relax, energise, or balance.",
-    icon: "❋",
+      "Custom blended essential oils. 45 Mins: ₹2,000 | 60 Mins: ₹2,500 | 90 Mins: ₹3,000.",
+    icon: "🌿",
   },
   {
     _id: "s4",
-    name: "Bridal Package",
-    category: "Bridal",
-    duration: 240,
-    price: 18000,
+    name: "Thai Massage",
+    category: "Signature Massage",
+    duration: "45-90",
+    price: "From ₹2,000",
     description:
-      "A complete head-to-toe bridal transformation including hair styling, airbrush makeup, facial, body scrub and relaxation ritual. Pre-bridal consultations included.",
-    icon: "◇",
+      "Traditional Thai techniques. 45 Mins: ₹2,000 | 60 Mins: ₹2,500 | 90 Mins: ₹3,000.",
+    icon: "🌸",
     popular: true,
   },
   {
     _id: "s5",
-    name: "Hair Spa Ritual",
-    category: "Hair",
-    duration: 45,
-    price: 2500,
+    name: "Bellyness Massage",
+    category: "Signature Massage",
+    duration: "45-60",
+    price: "From ₹2,000",
     description:
-      "Premium Moroccan argan oil treatment that restores shine, strength and silkiness. Includes scalp massage, steam treatment and conditioning masque.",
-    icon: "✿",
+      "Specialized belly therapy. 45 Mins: ₹2,000 | 60 Mins: ₹2,500.",
+    icon: "◎",
   },
   {
     _id: "s6",
-    name: "Gold Leaf Body Wrap",
-    category: "Body",
-    duration: 120,
-    price: 7500,
-    description:
-      "Indulge in a full-body detox wrap infused with 24k gold and rare botanical extracts. Skin is left luminous, firm and deeply nourished.",
-    icon: "✧",
-  },
-  {
-    _id: "s7",
     name: "Deep Tissue Massage",
-    category: "Massage",
-    duration: 90,
-    price: 4200,
+    category: "Signature Massage",
+    duration: "45-60",
+    price: "From ₹2,000",
     description:
-      "Targeted pressure on chronic muscle tension and knots. Ideal for athletes, desk workers, and anyone carrying deep-seated stress.",
+      "Targeted pressure on deep muscle tension. 45 Mins: ₹2,000 | 60 Mins: ₹2,500.",
     icon: "◉",
   },
+
+  // Body Polish
   {
-    _id: "s8",
-    name: "Hydra Glow Facial",
-    category: "Facial",
-    duration: 60,
-    price: 3500,
+    _id: "b1",
+    name: "Body Polish",
+    category: "Body Polish",
+    duration: "45-120",
+    price: "From ₹2,500",
     description:
-      "Intense hydration facial with hyaluronic acid infusion, peptide serum and oxygen therapy. Perfect for dehydrated, dull or mature skin.",
-    icon: "❊",
-  },
-  {
-    _id: "s9",
-    name: "Keratin Hair Treatment",
-    category: "Hair",
-    duration: 120,
-    price: 6500,
-    description:
-      "Professional-grade keratin smoothing treatment that eliminates frizz, adds mirror shine and reduces styling time by up to 70% for 3–4 months.",
-    icon: "✦",
+      "Our premium experience for glowing skin. 45 Mins: ₹2,500 | 60 Mins: ₹3,000 | 90 Mins: ₹3,500 | 120 Mins: ₹4,500.",
+    icon: "✨",
   },
 ];
 
-const CATEGORIES = ["All", "Facial", "Massage", "Hair", "Body", "Bridal"];
+const CATEGORIES = [
+  "All",
+  "Classic Massage",
+  "Signature Massage",
+  "Body Polish",
+];
 
 export default function ServicesPage() {
   const [services, setServices] = useState(STATIC_SERVICES);
@@ -247,7 +283,7 @@ export default function ServicesPage() {
                       textTransform: "uppercase",
                     }}
                   >
-                    {s.duration} min
+                    {s.duration} MIN
                   </span>
                   <span
                     style={{
@@ -259,7 +295,7 @@ export default function ServicesPage() {
                     }}
                   />
                   <span style={{ fontSize: 17, color: GOLD, fontWeight: 400 }}>
-                    ₹{s.price?.toLocaleString()}
+                    {s.price}
                   </span>
                 </div>
                 <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.8 }}>
@@ -321,7 +357,7 @@ export default function ServicesPage() {
               marginBottom: 16,
             }}
           >
-            Custom Packages
+            Special Offers
           </p>
           <h2
             style={{
@@ -332,7 +368,7 @@ export default function ServicesPage() {
               marginBottom: 24,
             }}
           >
-            Can't find exactly what you're looking for?
+            Unlock the ultimate relaxation journey
           </h2>
           <p
             style={{
@@ -342,13 +378,12 @@ export default function ServicesPage() {
               marginBottom: 40,
             }}
           >
-            We offer fully bespoke treatment packages — tell us your goals and
-            our wellness consultants will design a ritual just for you.
-            Corporate bookings, anniversary packages, and group events all
-            welcome.
+            Take advantage of our exclusive Women's 60-Minute Massage offer for
+            ₹2,999, or indulge in our 90-Minute Custom Selection Package for
+            ₹3,999.
           </p>
           <Link to="/contact" className="btn-gold">
-            Request Custom Package
+            Claim Offer
           </Link>
         </div>
       </section>

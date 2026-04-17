@@ -14,6 +14,8 @@ import ContactPage from "./Pages/ContactPage";
 import BookingPage from "./Pages/BookingPage";
 import AdminDashboard from "./Pages/AdminDashboard";
 import NotFoundPage from "./Pages/NotFoundPage";
+import BookingPopup from "./Components/BookingPopup.jsx";
+import MembershipPage from "./Pages/MembershipPage.jsx";
 
 // Inject global styles once
 function GlobalStyles() {
@@ -71,6 +73,7 @@ export default function App() {
     <AuthProvider>
       <GlobalStyles />
       <BrowserRouter>
+        <BookingPopup />
         <ScrollToTop />
         <Routes>
           {/* Public routes */}
@@ -78,6 +81,7 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/memberships" element={<MembershipPage />} />
           <Route path="/journal" element={<JournalPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/booking" element={<BookingPage />} />

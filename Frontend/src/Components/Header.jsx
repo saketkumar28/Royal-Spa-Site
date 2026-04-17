@@ -15,6 +15,7 @@ const NAV = [
   { label: "Gallery", path: "/gallery" },
   { label: "Journal", path: "/journal" },
   { label: "Contact", path: "/contact" },
+  { label: "Membership", path: "/memberships" },
 ];
 
 // ─── Inline SVG Logo ─────────────────────────────────────────────────────────

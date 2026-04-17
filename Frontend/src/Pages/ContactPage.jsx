@@ -1,5 +1,5 @@
 // src/pages/ContactPage.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../Components/Header.jsx";
 import Footer from "../Components/Footer.jsx";
 import PageHero from "../Components/PageHero.jsx";
@@ -19,50 +19,46 @@ const INFO = [
   {
     icon: "◉",
     label: "Address",
-    value: "12A, Park Street, Kolkata - 700016, West Bengal",
+    value: "Kothaguda, Hyderabad - 500081, Telangana",
   },
-  { icon: "✦", label: "Phone", value: "+91 98765 43210 · +91 33 4000 1234" },
+  { icon: "✦", label: "Phone", value: "+91 XXXXX XXXXX\nCall or WhatsApp" },
   {
     icon: "❋",
     label: "Email",
-    value: "info@theroyalspa.in · bookings@theroyalspa.in",
+    value: "info@theroyalspa.in",
   },
   {
     icon: "◈",
     label: "Hours",
-    value:
-      "Monday – Sunday: 10:00 AM – 8:00 PM\nAll Major Holidays: 11:00 AM – 6:00 PM",
+    value: "Open Daily\n10:00 AM – 9:00 PM",
   },
 ];
 
 const FAQ = [
   {
-    q: "How far in advance should I book?",
-    a: "We recommend booking at least 3–5 days in advance for weekday appointments and 1–2 weeks for weekends. Bridal packages should be booked 2–4 months ahead.",
+    q: "How do I book a session?",
+    a: "Prior appointment is necessary for all our treatments. You can request a booking through our website or reach out to us via WhatsApp.",
   },
   {
     q: "Do I need to arrive early?",
-    a: "Please arrive 10–15 minutes before your appointment to complete your wellness consultation form and enjoy our welcome tea ritual.",
-  },
-  {
-    q: "What should I wear?",
-    a: "We provide complimentary robes, slippers, and towels. Wear comfortable clothing you can easily change out of. Remove jewellery before your treatment.",
-  },
-  {
-    q: "Can I request a specific therapist?",
-    a: "Absolutely. We encourage you to note your preferred therapist in the booking form. We'll do our best to accommodate your request, subject to availability.",
+    a: "Yes, please arrive 15 minutes before your scheduled time. Please note we have a strict policy: a maximum 15-minute delay will result in auto-cancellation of your appointment and deduction of your coupon (if applicable).",
   },
   {
     q: "What is your cancellation policy?",
-    a: "We require 24 hours notice for cancellation or rescheduling. Late cancellations or no-shows may be charged 50% of the treatment cost.",
+    a: "Please inform us at least 1 hour in advance if you need to cancel or reschedule your appointment to avoid any penalties.",
   },
   {
-    q: "Do you offer gift vouchers?",
-    a: "Yes! Our luxury gift vouchers are available in any denomination and can be redeemed for any service. They make the perfect thoughtful gift. Contact us to purchase.",
+    q: "Are there any health guidelines I should follow?",
+    a: "Yes, please inform our therapists of any skin disease, infection, or medical problem before your service begins so we can ensure a safe and comfortable experience.",
+  },
+  {
+    q: "What should I wear?",
+    a: "We provide complimentary robes, slippers, and towels. Wear comfortable clothing you can easily change out of. We recommend removing jewelry and using the lockers provided, as management is not responsible for loss or damages.",
   },
 ];
 
 export default function ContactPage() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -70,8 +66,14 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState(null); // null | 'loading' | 'success' | 'error'
+  const [status, setStatus] = useState(null);
   const [openFaq, setOpenFaq] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 992);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -90,6 +92,17 @@ export default function ContactPage() {
     }
   };
 
+  const inputStyle = {
+    background: "transparent",
+    border: `1px solid rgba(201,168,76,0.2)`,
+    padding: "14px",
+    color: WHITE,
+    fontSize: "14px",
+    width: "100%",
+    outline: "none",
+    transition: "border-color 0.3s",
+  };
+
   return (
     <>
       <Header />
@@ -102,13 +115,18 @@ export default function ContactPage() {
       />
 
       {/* Info + Form */}
-      <section className="section" style={{ background: SURFACE }}>
+      <section
+        style={{
+          padding: isMobile ? "60px 20px" : "100px 60px",
+          background: SURFACE,
+        }}
+      >
         <div
           className="container"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1.6fr",
-            gap: 80,
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1.6fr",
+            gap: isMobile ? 60 : 80,
             alignItems: "start",
           }}
         >
@@ -128,7 +146,7 @@ export default function ContactPage() {
             <h2
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(28px, 3vw, 42px)",
+                fontSize: isMobile ? 32 : 42,
                 fontWeight: 300,
                 color: WHITE,
                 marginBottom: 40,
@@ -227,7 +245,7 @@ export default function ContactPage() {
             style={{
               background: SURFACE2,
               border: "1px solid rgba(201,168,76,0.12)",
-              padding: "48px 44px",
+              padding: isMobile ? "30px 20px" : "48px 44px",
             }}
           >
             <p
@@ -284,7 +302,7 @@ export default function ContactPage() {
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
+                    gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                     gap: 16,
                   }}
                 >
@@ -292,18 +310,20 @@ export default function ContactPage() {
                     placeholder="Full Name *"
                     value={form.name}
                     onChange={(e) => update("name", e.target.value)}
+                    style={inputStyle}
                   />
                   <input
                     type="email"
                     placeholder="Email Address *"
                     value={form.email}
                     onChange={(e) => update("email", e.target.value)}
+                    style={inputStyle}
                   />
                 </div>
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
+                    gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                     gap: 16,
                   }}
                 >
@@ -312,23 +332,29 @@ export default function ContactPage() {
                     placeholder="Phone Number"
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
+                    style={inputStyle}
                   />
                   <select
                     value={form.subject}
                     onChange={(e) => update("subject", e.target.value)}
-                    style={{ color: form.subject ? WHITE : MUTED }}
+                    style={{
+                      ...inputStyle,
+                      color: form.subject ? WHITE : MUTED,
+                    }}
                   >
                     <option value="">Subject</option>
                     {[
                       "General Inquiry",
                       "Booking Query",
-                      "Bridal Package",
+                      "Membership Details",
                       "Corporate Booking",
                       "Gift Voucher",
                       "Feedback",
                       "Other",
                     ].map((o) => (
-                      <option key={o}>{o}</option>
+                      <option key={o} style={{ background: BLACK }}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -337,6 +363,7 @@ export default function ContactPage() {
                   rows={5}
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
+                  style={{ ...inputStyle, resize: "none" }}
                 />
 
                 {status === "error" && (
@@ -352,6 +379,7 @@ export default function ContactPage() {
                   onClick={handleSubmit}
                   disabled={status === "loading"}
                   style={{
+                    padding: "16px",
                     opacity: status === "loading" ? 0.7 : 1,
                     cursor: status === "loading" ? "wait" : "pointer",
                   }}
@@ -365,10 +393,10 @@ export default function ContactPage() {
       </section>
 
       {/* Map embed */}
-      <section style={{ height: 420 }}>
+      <section style={{ height: isMobile ? 300 : 450 }}>
         <iframe
           title="The Royal Salon & Spa Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3!2d88.3476!3d22.5571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDMzJzI1LjYiTiA4OMKwMjAnNTEuNCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2918.857650402023!2d78.3677091!3d17.4638843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb937acc3d7cd5%3A0xac4102eb56fa88e2!2sThe%20Royal%20Salon%20%26%20Spa!5e1!3m2!1sen!2sin!4v1776425855017!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{
@@ -381,7 +409,12 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section" style={{ background: BLACK }}>
+      <section
+        style={{
+          padding: isMobile ? "60px 20px" : "100px 60px",
+          background: BLACK,
+        }}
+      >
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: "center", marginBottom: 60 }}>
             <p
@@ -398,7 +431,7 @@ export default function ContactPage() {
             <h2
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(28px, 4vw, 48px)",
+                fontSize: isMobile ? 32 : 48,
                 fontWeight: 300,
                 color: WHITE,
               }}
@@ -430,7 +463,7 @@ export default function ContactPage() {
               >
                 <span
                   style={{
-                    fontSize: 16,
+                    fontSize: isMobile ? 14 : 16,
                     color: openFaq === i ? GOLD : WHITE,
                     fontWeight: 400,
                     transition: "color 0.3s",
@@ -453,7 +486,7 @@ export default function ContactPage() {
               </button>
               <div
                 style={{
-                  maxHeight: openFaq === i ? 200 : 0,
+                  maxHeight: openFaq === i ? (isMobile ? 300 : 200) : 0,
                   overflow: "hidden",
                   transition: "max-height 0.4s ease",
                 }}

@@ -12,25 +12,26 @@ export default function Footer() {
         { l: "Services", p: "/services" },
         { l: "Gallery", p: "/gallery" },
         { l: "Journal", p: "/journal" },
+        { l: "Membership", p: "/memberships" },
       ],
     },
     {
       title: "Services",
       links: [
-        { l: "Facials", p: "/services" },
-        { l: "Massages", p: "/services" },
-        { l: "Hair Spa", p: "/services" },
-        { l: "Bridal", p: "/services" },
-        { l: "Body Wraps", p: "/services" },
+        { l: "Classic Massages", p: "/services" },
+        { l: "Signature Massages", p: "/services" },
+        { l: "Body Polish", p: "/services" },
+        { l: "Memberships", p: "/services" },
+        { l: "Exclusive Offers", p: "/services" },
       ],
     },
     {
       title: "Visit",
       links: [
-        { l: "Park Street, Kolkata" },
-        { l: "+91 98765 43210" },
-        { l: "info@theroyalspa.in" },
-        { l: "Mon–Sun: 10AM – 8PM" },
+        { l: "Kothaguda, Hyderabad - 500081" },
+        { l: "Call or WhatsApp for Appointments" },
+        { l: "Mon–Sun: 10:00 AM – 9:00 PM" },
+        { l: "EST. 2008" },
       ],
     },
   ];
@@ -77,7 +78,7 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              Salon & Spa
+              Saloon & Spa
             </p>
             <p
               style={{
@@ -87,8 +88,7 @@ export default function Footer() {
                 maxWidth: 280,
               }}
             >
-              Kolkata's most exclusive luxury wellness sanctuary — where beauty
-              rituals become transformative journeys.
+              Where Luxury Meets Serenity — exclusively crafted for you.
             </p>
             <div style={{ display: "flex", gap: 20, marginTop: 28 }}>
               {["Instagram", "Facebook", "Pinterest"].map((s) => (
@@ -167,8 +167,8 @@ export default function Footer() {
           }}
         >
           <p style={{ fontSize: 12, color: MUTED }}>
-            © 2026 The Royal Salon & Spa. All rights reserved. Crafted by Asan
-            Innovators.
+            © 2026 The Royal Saloon & Spa. All rights reserved. Crafted by Saket
+            Kumar.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div
