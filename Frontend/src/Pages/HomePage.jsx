@@ -298,14 +298,14 @@ function ServicesSection() {
     },
   ]);
 
-  useEffect(() => {
-    serviceAPI
-      .getAll()
-      .then((d) => {
-        if (d.services?.length) setServices(d.services);
-      })
-      .catch(() => {});
-  }, []);
+  // useEffect(() => {
+  //   serviceAPI
+  //     .getAll()
+  //     .then((d) => {
+  //       if (d.services?.length) setServices(d.services);
+  //     })
+  //     .catch(() => {});
+  // }, []);
 
   return (
     <section className="section" style={{ background: SURFACE }}>
