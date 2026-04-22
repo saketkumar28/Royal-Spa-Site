@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import { GOLD, MUTED, WHITE, BLACK, SURFACE2, SURFACE } from "../theme";
 
 export default function Footer() {
+  const socials = [
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/theroyalsalonandspa_hyd?igsh=MTQzOXh6dm94aDVoOA%3D%3D&utm_source=qr",
+    },
+    { name: "Facebook", url: "https://www.facebook.com/theroyalsaloonandspa" },
+    { name: "Pinterest", url: "https://pinterest.com/your-profile" },
+  ];
+
   const cols = [
     {
       title: "Explore",
@@ -28,8 +37,18 @@ export default function Footer() {
     {
       title: "Visit",
       links: [
-        { l: "Kothaguda, Hyderabad - 500081" },
-        { l: "Call or WhatsApp for Appointments" },
+        {
+          l: "Kothaguda, Hyderabad - 500081",
+          href: "https://maps.app.goo.gl/aQEbvsQiPsqgD5cW6?g_st=ic",
+        },
+        {
+          l: "Call Us: +91 9392211285",
+          href: "tel:+919392211285",
+        },
+        {
+          l: "WhatsApp Us",
+          href: "https://wa.me/919392211285",
+        },
         { l: "Mon–Sun: 10:00 AM – 9:00 PM" },
         { l: "EST. 2008" },
       ],
@@ -91,26 +110,30 @@ export default function Footer() {
               Where Luxury Meets Serenity — exclusively crafted for you.
             </p>
             <div style={{ display: "flex", gap: 20, marginTop: 28 }}>
-              {["Instagram", "Facebook", "Pinterest"].map((s) => (
+              {socials.map((s) => (
                 <a
-                  key={s}
-                  href="#"
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     fontSize: 11,
                     letterSpacing: 1.5,
                     color: MUTED,
                     textTransform: "uppercase",
                     transition: "color 0.3s",
+                    textDecoration: "none",
                   }}
                   onMouseOver={(e) => (e.target.style.color = GOLD)}
                   onMouseOut={(e) => (e.target.style.color = MUTED)}
                 >
-                  {s}
+                  {s.name}
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Columns */}
           {cols.map((col) => (
             <div key={col.title}>
               <p
@@ -125,32 +148,58 @@ export default function Footer() {
               >
                 {col.title}
               </p>
-              {col.links.map((lk, i) =>
-                lk.p ? (
-                  <Link
-                    key={i}
-                    to={lk.p}
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      color: MUTED,
-                      marginBottom: 12,
-                      transition: "color 0.3s",
-                    }}
-                    onMouseOver={(e) => (e.target.style.color = WHITE)}
-                    onMouseOut={(e) => (e.target.style.color = MUTED)}
-                  >
-                    {lk.l}
-                  </Link>
-                ) : (
+              {col.links.map((lk, i) => {
+                const linkStyle = {
+                  display: "block",
+                  fontSize: 13,
+                  color: MUTED,
+                  marginBottom: 12,
+                  transition: "color 0.3s",
+                  textDecoration: "none",
+                };
+
+                // Internal React Router Link
+                if (lk.p) {
+                  return (
+                    <Link
+                      key={i}
+                      to={lk.p}
+                      style={linkStyle}
+                      onMouseOver={(e) => (e.target.style.color = WHITE)}
+                      onMouseOut={(e) => (e.target.style.color = MUTED)}
+                    >
+                      {lk.l}
+                    </Link>
+                  );
+                }
+
+                // External Link (Maps, Phone, WhatsApp)
+                if (lk.href) {
+                  return (
+                    <a
+                      key={i}
+                      href={lk.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={linkStyle}
+                      onMouseOver={(e) => (e.target.style.color = WHITE)}
+                      onMouseOut={(e) => (e.target.style.color = MUTED)}
+                    >
+                      {lk.l}
+                    </a>
+                  );
+                }
+
+                // Plain Text (Timings, EST)
+                return (
                   <p
                     key={i}
                     style={{ fontSize: 13, color: MUTED, marginBottom: 12 }}
                   >
                     {lk.l}
                   </p>
-                ),
-              )}
+                );
+              })}
             </div>
           ))}
         </div>
@@ -187,12 +236,18 @@ export default function Footer() {
             />
           </div>
           <div style={{ display: "flex", gap: 20 }}>
-            <a href="#" style={{ fontSize: 12, color: MUTED }}>
+            <Link
+              to="/privacy"
+              style={{ fontSize: 12, color: MUTED, textDecoration: "none" }}
+            >
               Privacy Policy
-            </a>
-            <a href="#" style={{ fontSize: 12, color: MUTED }}>
+            </Link>
+            <Link
+              to="/terms"
+              style={{ fontSize: 12, color: MUTED, textDecoration: "none" }}
+            >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
