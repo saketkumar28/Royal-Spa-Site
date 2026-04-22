@@ -1,36 +1,30 @@
 // src/theme.js — single source of truth for design tokens
 // ─────────────────────────────────────────────────────────
-// THEME UPDATE: Switched from dark (near-black) to warm ivory/cream
-// for maximum readability while preserving the gold logo identity.
-// Gold values are 100% unchanged — all buttons, borders, icons stay identical.
+// THEME: Dark luxury — deep black backgrounds with gold identity
 // ─────────────────────────────────────────────────────────
 
-// ── GOLD (logo identity — DO NOT CHANGE) ──────────────────
+// ── GOLD (logo identity) ───────────────────────────────────
 export const GOLD = "#C9A84C";
 export const GOLD_LIGHT = "#E8C97A";
 export const GOLD_DARK = "#8B6914";
 
-// ── BACKGROUNDS (was near-black, now warm ivory) ───────────
-export const BLACK = "#FAF6EF"; // was #0A0A0A  → page base background
-export const SURFACE = "#F2EBD9"; // was #111111  → cards, nav, elevated surfaces
-export const SURFACE2 = "#EAE0CA"; // was #1A1A1A  → input fields, deep cards
-export const SURFACE3 = "#E0D3B8"; // was #222222  → borders, subtle dividers
+// ── BACKGROUNDS ───────────────────────────────────────────
+export const BLACK = "#0A0A0A"; // page base
+export const SURFACE = "#111111"; // cards, nav, elevated surfaces
+export const SURFACE2 = "#1A1A1A"; // input fields, deep cards
+export const SURFACE3 = "#222222"; // borders, subtle dividers
 
-// ── TEXT (was off-white, now warm deep ink) ────────────────
-export const WHITE = "#2A1E0F"; // was #F5F0E8  → primary text (renamed for compat)
-export const MUTED = "#7A6A55"; // was #9A9080  → secondary / placeholder text
+// ── TEXT ──────────────────────────────────────────────────
+export const WHITE = "#F5F0E8"; // primary text
+export const MUTED = "#9A9080"; // secondary / placeholder
 
-// ── DARK ACCENT (for footer, testimonials, marquee bands) ──
-export const INK = "#1E1408"; // deep warm ink — replaces pure black sections
-export const INK_LIGHT = "#2E2010"; // slightly lighter variant for dark cards
-
-// ── SEMANTIC COLOURS (unchanged) ──────────────────────────
+// ── SEMANTIC ──────────────────────────────────────────────
 export const SUCCESS = "#3A9E6A";
 export const WARNING = "#D4900A";
 export const DANGER = "#D44040";
 export const INFO = "#3A80C9";
 
-// ── FONTS (unchanged) ─────────────────────────────────────
+// ── FONTS ─────────────────────────────────────────────────
 export const FONTS = {
   serif: "'Cormorant Garamond', serif",
   sans: "'Jost', sans-serif",
@@ -44,8 +38,8 @@ export const globalCSS = `
   html { scroll-behavior: smooth; }
 
   body {
-    background: #FAF6EF;
-    color: #2A1E0F;
+    background: #0A0A0A;
+    color: #F5F0E8;
     font-family: 'Jost', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
@@ -57,10 +51,10 @@ export const globalCSS = `
 
   /* ── Scrollbar ── */
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #FAF6EF; }
+  ::-webkit-scrollbar-track { background: #0A0A0A; }
   ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 2px; }
 
-  /* ── Animations (unchanged) ── */
+  /* ── Animations ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -79,7 +73,7 @@ export const globalCSS = `
   .fade-up { animation: fadeUp 0.9s ease forwards; }
   .fade-in { animation: fadeIn 0.8s ease forwards; }
 
-  /* ── Gold shimmer text (unchanged) ── */
+  /* ── Gold shimmer text ── */
   .gold-text {
     background: linear-gradient(135deg, #8B6914, #C9A84C, #E8C97A, #C9A84C);
     background-size: 200% auto;
@@ -94,17 +88,17 @@ export const globalCSS = `
     font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #8B6914;
+    color: #C9A84C;
     font-weight: 400;
     display: block;
     margin-bottom: 14px;
   }
 
-  /* ── Buttons (gold identity fully preserved) ── */
+  /* ── Buttons ── */
   .btn-gold {
     background: transparent;
     border: 1px solid #C9A84C;
-    color: #8B6914;
+    color: #C9A84C;
     padding: 14px 40px;
     font-size: 12px;
     font-weight: 400;
@@ -126,13 +120,13 @@ export const globalCSS = `
     transition: transform 0.35s ease;
     z-index: -1;
   }
-  .btn-gold:hover { color: #FAF6EF; }
+  .btn-gold:hover { color: #0A0A0A; }
   .btn-gold:hover::before { transform: scaleX(1); }
 
   .btn-solid {
     background: #C9A84C;
     border: 1px solid #C9A84C;
-    color: #FAF6EF;
+    color: #0A0A0A;
     padding: 14px 40px;
     font-size: 12px;
     font-weight: 500;
@@ -140,18 +134,18 @@ export const globalCSS = `
     text-transform: uppercase;
     transition: all 0.3s;
   }
-  .btn-solid:hover { background: #E8C97A; border-color: #E8C97A; color: #2A1E0F; }
+  .btn-solid:hover { background: #E8C97A; border-color: #E8C97A; color: #0A0A0A; }
 
   /* ── Card hover ── */
   .card-hover { transition: transform 0.4s ease, box-shadow 0.4s ease; }
   .card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(139,105,20,0.10);
+    box-shadow: 0 20px 60px rgba(201,168,76,0.08);
   }
 
   /* ── Nav links ── */
   .nav-link {
-    color: #7A6A55;
+    color: #9A9080;
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -159,7 +153,7 @@ export const globalCSS = `
     transition: color 0.3s;
     cursor: pointer;
   }
-  .nav-link:hover, .nav-link.active { color: #8B6914; }
+  .nav-link:hover, .nav-link.active { color: #C9A84C; }
 
   /* ── Page hero ── */
   .page-hero {
@@ -173,7 +167,7 @@ export const globalCSS = `
       ellipse at 50% 60%,
       rgba(201,168,76,0.07) 0%,
       transparent 65%
-    ), #FAF6EF;
+    ), #0A0A0A;
   }
 
   /* ── Sections ── */
@@ -183,9 +177,9 @@ export const globalCSS = `
 
   /* ── Form inputs ── */
   input, textarea, select {
-    background: #FFFFFF;
-    border: 1px solid rgba(201,168,76,0.30);
-    color: #2A1E0F;
+    background: #1A1A1A;
+    border: 1px solid rgba(201,168,76,0.20);
+    color: #F5F0E8;
     padding: 14px 18px;
     font-family: 'Jost', sans-serif;
     font-size: 14px;
@@ -193,22 +187,14 @@ export const globalCSS = `
     width: 100%;
     outline: none;
     transition: border-color 0.3s;
+    colorScheme: dark;
   }
   input:focus, textarea:focus, select:focus {
     border-color: #C9A84C;
     box-shadow: 0 0 0 3px rgba(201,168,76,0.08);
   }
-  input::placeholder, textarea::placeholder { color: #7A6A55; }
-  select option { background: #FFFFFF; color: #2A1E0F; }
-
-  /* ── Dark band utility (footer / testimonials / marquee) ── */
-  .dark-band {
-    background: #1E1408;
-    color: #EAD9B8;
-  }
-  .dark-band .section-label { color: #C9A84C; }
-  .dark-band .nav-link { color: rgba(234,217,184,0.55); }
-  .dark-band .nav-link:hover { color: #C9A84C; }
+  input::placeholder, textarea::placeholder { color: #9A9080; }
+  select option { background: #1A1A1A; color: #F5F0E8; }
 
   /* ── Divider ornament ── */
   .gold-divider {

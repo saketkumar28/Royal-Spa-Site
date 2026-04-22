@@ -7,9 +7,14 @@ export default function BookingPopup() {
   const scriptUrl =
     "https://script.google.com/macros/s/AKfycbzUBpTyL1mn9MD0y6-cC82KkFnGHrnWgMTlJcEBsZ8-qK3WxgYzim4SfnIgNag7eGnT/exec";
 
-  // Auto-show the popup ONCE when the website first loads
+  // Auto-show the popup ONCE after 8 seconds (less intrusive)
   useEffect(() => {
-    const timer = setTimeout(() => setIsOpen(true), 3000);
+    const shown = sessionStorage.getItem("bookingPopupShown");
+    if (shown) return;
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      sessionStorage.setItem("bookingPopupShown", "1");
+    }, 8000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -27,11 +32,10 @@ export default function BookingPopup() {
         mode: "no-cors",
       });
       setStatus("success");
-      // Reset the form and close the modal after 3 seconds
       setTimeout(() => {
         setIsOpen(false);
         setStatus("idle");
-        e.target.reset(); // Clears the form so it's fresh for the next booking
+        e.target.reset();
       }, 3000);
     } catch (error) {
       console.error("Submission failed", error);
@@ -39,98 +43,114 @@ export default function BookingPopup() {
     }
   };
 
+  // Only render the modal — no floating button (header already has Book Now)
+  if (!isOpen) return null;
+
   return (
-    <>
-      {/* 1. The Persistent Floating Button */}
-      <button onClick={() => setIsOpen(true)} style={styles.floatingBtn}>
-        Book Now
-      </button>
+    <div style={styles.overlay}>
+      <div style={styles.modal}>
+        <button
+          style={styles.closeBtn}
+          onClick={() => setIsOpen(false)}
+          aria-label="Close"
+        >
+          ✕
+        </button>
 
-      {/* 2. The Modal (Only renders if isOpen is true) */}
-      {isOpen && (
-        <div style={styles.overlay}>
-          <div style={styles.modal}>
-            <button style={styles.closeBtn} onClick={() => setIsOpen(false)}>
-              ✕
-            </button>
+        <h2 style={{ color: "#C9A84C", marginBottom: "5px" }}>
+          Book Your Session
+        </h2>
+        <p style={{ color: "#aaa", marginBottom: "20px", fontSize: "14px" }}>
+          Experience luxury at The Royal Saloon &amp; Spa
+        </p>
 
-            <h2 style={{ color: "#C9A84C", marginBottom: "5px" }}>
-              Book Your Session
-            </h2>
-            <p
-              style={{ color: "#aaa", marginBottom: "20px", fontSize: "14px" }}
-            >
-              Experience luxury at The Royal Saloon & Spa
-            </p>
-
-            {status === "success" ? (
-              <div style={{ color: "#4CAF50", padding: "20px 0" }}>
-                Booking request sent! We will call you shortly.
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} style={styles.form}>
-                <input
-                  required
-                  name="name"
-                  type="text"
-                  placeholder="Your Name"
-                  style={styles.input}
-                />
-                <input
-                  required
-                  name="phone"
-                  type="tel"
-                  placeholder="Phone Number"
-                  style={styles.input}
-                />
-
-                <select required name="service" style={styles.input}>
-                  <option value="">Select a Service...</option>
-                  <option value="Classic Massage">Classic Massage</option>
-                  <option value="Signature Massage">Signature Massage</option>
-                  <option value="Women's 60 Min Offer - 2999">
-                    Women's 60 Min Offer - ₹2,999
-                  </option>
-                  <option value="Special 90 Min Package - 3999">
-                    Special 90 Min Package - ₹3,999
-                  </option>
-                </select>
-
-                <input required name="date" type="date" style={styles.input} />
-
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  style={styles.submitBtn}
-                >
-                  {status === "submitting" ? "Sending..." : "Request Booking"}
-                </button>
-              </form>
-            )}
+        {status === "success" ? (
+          <div style={{ color: "#4CAF50", padding: "20px 0" }}>
+            Booking request sent! We will call you shortly.
           </div>
-        </div>
-      )}
-    </>
+        ) : (
+          <form onSubmit={handleSubmit} style={styles.form}>
+            <input
+              required
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              style={styles.input}
+            />
+            <input
+              required
+              name="phone"
+              type="tel"
+              placeholder="Phone Number"
+              style={styles.input}
+            />
+
+            <select required name="service" style={styles.input}>
+              <option value="">Select a Service...</option>
+              <optgroup label="Classic Massages">
+                <option value="Head Massage - ₹500">Head Massage — ₹500</option>
+                <option value="Foot Massage - ₹700">Foot Massage — ₹700</option>
+                <option value="Legs and Hands Massage - ₹1000">
+                  Legs and Hands Massage — ₹1,000
+                </option>
+                <option value="Back Massage - ₹1000">
+                  Back Massage — ₹1,000
+                </option>
+                <option value="Basic Massage - ₹1500">
+                  Basic Massage — ₹1,500
+                </option>
+              </optgroup>
+              <optgroup label="Signature Massages">
+                <option value="Normal Cream Massage">
+                  Normal Cream Massage
+                </option>
+                <option value="Swedish Massage">Swedish Massage</option>
+                <option value="Aroma Massage">Aroma Massage</option>
+                <option value="Thai Massage">Thai Massage</option>
+                <option value="Bellyness Massage">Bellyness Massage</option>
+                <option value="Deep Tissue Massage">Deep Tissue Massage</option>
+              </optgroup>
+              <optgroup label="Body Polish">
+                <option value="Body Polish (45 min) - ₹2500">
+                  Body Polish 45 min — ₹2,500
+                </option>
+                <option value="Body Polish (60 min) - ₹3000">
+                  Body Polish 60 min — ₹3,000
+                </option>
+                <option value="Body Polish (90 min) - ₹3500">
+                  Body Polish 90 min — ₹3,500
+                </option>
+                <option value="Body Polish (120 min) - ₹4500">
+                  Body Polish 120 min — ₹4,500
+                </option>
+              </optgroup>
+              <optgroup label="Special Offers">
+                <option value="Women's Special 60 Min - ₹2999">
+                  Women's Special 60 Min — ₹2,999
+                </option>
+                <option value="Special Package 90 Min - ₹3999">
+                  Special Package 90 Min — ₹3,999
+                </option>
+              </optgroup>
+            </select>
+
+            <input required name="date" type="date" style={styles.input} />
+
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              style={styles.submitBtn}
+            >
+              {status === "submitting" ? "Sending..." : "Request Booking"}
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
   );
 }
 
 const styles = {
-  // New Floating Button Style
-  floatingBtn: {
-    position: "fixed",
-    bottom: "20px",
-    right: "20px",
-    backgroundColor: "#C9A84C",
-    color: "black",
-    padding: "15px 25px",
-    borderRadius: "50px",
-    border: "none",
-    fontSize: "16px",
-    fontWeight: "bold",
-    cursor: "pointer",
-    zIndex: 9998,
-    boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
-  },
   overlay: {
     position: "fixed",
     top: 0,
@@ -153,6 +173,8 @@ const styles = {
     position: "relative",
     textAlign: "center",
     color: "white",
+    maxHeight: "90vh",
+    overflowY: "auto",
   },
   closeBtn: {
     position: "absolute",

@@ -30,68 +30,212 @@ const ALL_SLOTS = [
 const STEPS = ["Your Details", "Choose Service", "Date & Time", "Confirm"];
 
 const STATIC_SERVICES = [
+  // Classic Massages
+  {
+    _id: "c1",
+    name: "Head Massage",
+    category: "Classic Massage",
+    duration: 30,
+    price: 500,
+  },
+  {
+    _id: "c2",
+    name: "Foot Massage",
+    category: "Classic Massage",
+    duration: 30,
+    price: 700,
+  },
+  {
+    _id: "c3",
+    name: "Legs and Hands Massage",
+    category: "Classic Massage",
+    duration: 45,
+    price: 1000,
+  },
+  {
+    _id: "c4",
+    name: "Back Massage",
+    category: "Classic Massage",
+    duration: 45,
+    price: 1000,
+  },
+  {
+    _id: "c5",
+    name: "Basic Massage",
+    category: "Classic Massage",
+    duration: 60,
+    price: 1500,
+  },
+  // Signature Massages
   {
     _id: "s1",
-    name: "Royal Signature Facial",
-    category: "Facial",
-    duration: 90,
-    price: 4500,
+    name: "Normal Cream Massage (45 min)",
+    category: "Signature Massage",
+    duration: 45,
+    price: 1500,
   },
   {
     _id: "s2",
-    name: "Hot Stone Therapy",
-    category: "Massage",
-    duration: 75,
-    price: 3800,
+    name: "Normal Cream Massage (60 min)",
+    category: "Signature Massage",
+    duration: 60,
+    price: 2000,
   },
   {
     _id: "s3",
-    name: "Aromatherapy Massage",
-    category: "Massage",
-    duration: 60,
-    price: 3200,
+    name: "Normal Cream Massage (90 min)",
+    category: "Signature Massage",
+    duration: 90,
+    price: 2500,
   },
   {
     _id: "s4",
-    name: "Bridal Package",
-    category: "Bridal",
-    duration: 240,
-    price: 18000,
+    name: "Swedish Massage (45 min)",
+    category: "Signature Massage",
+    duration: 45,
+    price: 1500,
   },
   {
     _id: "s5",
-    name: "Hair Spa Ritual",
-    category: "Hair",
+    name: "Swedish Massage (60 min)",
+    category: "Signature Massage",
+    duration: 60,
+    price: 2000,
+  },
+  {
+    _id: "s6",
+    name: "Swedish Massage (90 min)",
+    category: "Signature Massage",
+    duration: 90,
+    price: 2500,
+  },
+  {
+    _id: "s7",
+    name: "Aroma Massage (45 min)",
+    category: "Signature Massage",
+    duration: 45,
+    price: 2000,
+  },
+  {
+    _id: "s8",
+    name: "Aroma Massage (60 min)",
+    category: "Signature Massage",
+    duration: 60,
+    price: 2500,
+  },
+  {
+    _id: "s9",
+    name: "Aroma Massage (90 min)",
+    category: "Signature Massage",
+    duration: 90,
+    price: 3000,
+  },
+  {
+    _id: "s10",
+    name: "Thai Massage (45 min)",
+    category: "Signature Massage",
+    duration: 45,
+    price: 2000,
+  },
+  {
+    _id: "s11",
+    name: "Thai Massage (60 min)",
+    category: "Signature Massage",
+    duration: 60,
+    price: 2500,
+  },
+  {
+    _id: "s12",
+    name: "Thai Massage (90 min)",
+    category: "Signature Massage",
+    duration: 90,
+    price: 3000,
+  },
+  {
+    _id: "s13",
+    name: "Bellyness Massage (45 min)",
+    category: "Signature Massage",
+    duration: 45,
+    price: 2000,
+  },
+  {
+    _id: "s14",
+    name: "Bellyness Massage (60 min)",
+    category: "Signature Massage",
+    duration: 60,
+    price: 2500,
+  },
+  {
+    _id: "s15",
+    name: "Bellyness Massage (90 min)",
+    category: "Signature Massage",
+    duration: 90,
+    price: 3000,
+  },
+  {
+    _id: "s16",
+    name: "Deep Tissue Massage (45 min)",
+    category: "Signature Massage",
+    duration: 45,
+    price: 2000,
+  },
+  {
+    _id: "s17",
+    name: "Deep Tissue Massage (60 min)",
+    category: "Signature Massage",
+    duration: 60,
+    price: 2500,
+  },
+  {
+    _id: "s18",
+    name: "Deep Tissue Massage (90 min)",
+    category: "Signature Massage",
+    duration: 90,
+    price: 3000,
+  },
+  // Body Polish
+  {
+    _id: "b1",
+    name: "Body Polish (45 min)",
+    category: "Body Polish",
     duration: 45,
     price: 2500,
   },
   {
-    _id: "s6",
-    name: "Gold Leaf Body Wrap",
-    category: "Body",
-    duration: 120,
-    price: 7500,
-  },
-  {
-    _id: "s7",
-    name: "Deep Tissue Massage",
-    category: "Massage",
-    duration: 90,
-    price: 4200,
-  },
-  {
-    _id: "s8",
-    name: "Hydra Glow Facial",
-    category: "Facial",
+    _id: "b2",
+    name: "Body Polish (60 min)",
+    category: "Body Polish",
     duration: 60,
+    price: 3000,
+  },
+  {
+    _id: "b3",
+    name: "Body Polish (90 min)",
+    category: "Body Polish",
+    duration: 90,
     price: 3500,
   },
   {
-    _id: "s9",
-    name: "Keratin Hair Treatment",
-    category: "Hair",
+    _id: "b4",
+    name: "Body Polish (120 min)",
+    category: "Body Polish",
     duration: 120,
-    price: 6500,
+    price: 4500,
+  },
+  // Special Offers
+  {
+    _id: "o1",
+    name: "Women's Special — Any 60 Min Massage",
+    category: "Special Offer",
+    duration: 60,
+    price: 2999,
+  },
+  {
+    _id: "o2",
+    name: "Special Package — 90 Min Custom Selection",
+    category: "Special Offer",
+    duration: 90,
+    price: 3999,
   },
 ];
 
@@ -170,14 +314,51 @@ export default function BookingPage() {
     setStep((s) => s + 1);
   };
 
+  // Google Sheets fallback script (same as BookingPopup)
+  const SHEETS_URL =
+    "https://script.google.com/macros/s/AKfycbzUBpTyL1mn9MD0y6-cC82KkFnGHrnWgMTlJcEBsZ8-qK3WxgYzim4SfnIgNag7eGnT/exec";
+
   const submit = async () => {
     setSubmitting(true);
     setError("");
+
+    const payload = {
+      name: form.clientName,
+      phone: form.clientPhone,
+      email: form.clientEmail,
+      service: form.service?.name,
+      serviceId: form.service?._id,
+      duration: form.service?.duration,
+      price: form.service?.price,
+      date: form.bookingDate,
+      time: form.timeSlot,
+      notes: form.notes,
+    };
+
+    // 1️⃣ Try the backend first
     try {
-      await bookingAPI.create({ ...form, service: form.service._id });
+      await bookingAPI.create({ ...payload, service: form.service._id });
+      setSubmitted(true);
+      setSubmitting(false);
+      return;
+    } catch (_) {
+      // Backend unavailable — fall through to Sheets fallback
+    }
+
+    // 2️⃣ Fallback: send to Google Sheets
+    try {
+      await fetch(SHEETS_URL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        mode: "no-cors",
+      });
+      // no-cors means we can't read the response — assume success
       setSubmitted(true);
     } catch (e) {
-      setError(e.message || "Something went wrong. Please try again.");
+      // Both failed — show a helpful message (not a raw fetch error)
+      setError(
+        "We couldn't submit online right now. Please call or WhatsApp us to confirm your booking.",
+      );
     } finally {
       setSubmitting(false);
     }
