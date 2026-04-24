@@ -21,6 +21,7 @@ import BookingPage from "./Pages/BookingPage";
 import AdminDashboard from "./Pages/AdminDashboard";
 import NotFoundPage from "./Pages/NotFoundPage";
 import BookingPopup from "./Components/BookingPopup.jsx";
+import FloatingButtons from "./Components/FloatingButtons.jsx";
 import MembershipPage from "./Pages/MembershipPage.jsx";
 import PrivacyPage from "./Pages/PrivacyPage.jsx";
 import TermsPage from "./Pages/TermsPage.jsx";
@@ -83,6 +84,7 @@ export default function App() {
       <GlobalStyles />
       <BrowserRouter>
         <BookingPopup />
+        <FloatingButtons />
         <ScrollToTop />
         <Routes>
           {/* Public routes */}
