@@ -1,5 +1,11 @@
 // src/App.js
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import { useEffect } from "react";
 import { globalCSS } from "./theme.js";
 import { AuthProvider, useAuth } from "./Context/AuthContext.js";
@@ -62,11 +68,12 @@ function ProtectedRoute({ children }) {
   return user ? children : <Navigate to="/admin/login" replace />;
 }
 
-// Scroll to top on route change
+// Scroll to top on EVERY route change (uses useLocation — must be inside BrowserRouter)
 function ScrollToTop() {
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
   return null;
 }
 

@@ -296,7 +296,9 @@ export default function BookingPage() {
     if (step === 2) {
       if (!form.bookingDate) return "Please select a date.";
       if (!form.timeSlot) return "Please select a time slot.";
-      const d = new Date(form.bookingDate);
+      // Parse as local date (not UTC) to avoid timezone off-by-one on IST
+      const [y, m, day] = form.bookingDate.split("-").map(Number);
+      const d = new Date(y, m - 1, day);
       const t = new Date();
       t.setHours(0, 0, 0, 0);
       if (d < t) return "Please choose a future date.";
@@ -415,11 +417,14 @@ export default function BookingPage() {
             >
               Your <span style={{ color: GOLD }}>{form.service?.name}</span> is
               booked for{" "}
-              {new Date(form.bookingDate).toLocaleDateString("en-IN", {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-              })}{" "}
+              {(() => {
+                const [y, m, d] = form.bookingDate.split("-").map(Number);
+                return new Date(y, m - 1, d).toLocaleDateString("en-IN", {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                });
+              })()}{" "}
               at {form.timeSlot}.
             </p>
             <p style={{ color: MUTED, fontSize: 14, marginBottom: 48 }}>
@@ -779,15 +784,15 @@ export default function BookingPage() {
                   },
                   {
                     label: "Date",
-                    value: new Date(form.bookingDate).toLocaleDateString(
-                      "en-IN",
-                      {
+                    value: (() => {
+                      const [y, m, d] = form.bookingDate.split("-").map(Number);
+                      return new Date(y, m - 1, d).toLocaleDateString("en-IN", {
                         weekday: "long",
                         day: "numeric",
                         month: "long",
                         year: "numeric",
-                      },
-                    ),
+                      });
+                    })(),
                   },
                   { label: "Time", value: form.timeSlot },
                   {

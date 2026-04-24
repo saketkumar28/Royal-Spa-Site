@@ -1,13 +1,17 @@
+// src/Components/BookingPopup.jsx
+// Auto-shows once per session after 8 s — clicking CTA routes to /booking (single form)
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+const GOLD = "#C9A84C";
+const BLACK = "#0A0A0A";
+const WHITE = "#F5F0E8";
+const MUTED = "#9A9080";
 
 export default function BookingPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState("idle");
 
-  const scriptUrl =
-    "https://script.google.com/macros/s/AKfycbzUBpTyL1mn9MD0y6-cC82KkFnGHrnWgMTlJcEBsZ8-qK3WxgYzim4SfnIgNag7eGnT/exec";
-
-  // Auto-show the popup ONCE after 8 seconds (less intrusive)
+  // Show once per session after 8 seconds
   useEffect(() => {
     const shown = sessionStorage.getItem("bookingPopupShown");
     if (shown) return;
@@ -18,37 +22,11 @@ export default function BookingPopup() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("submitting");
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      await fetch(scriptUrl, {
-        method: "POST",
-        body: JSON.stringify(data),
-        mode: "no-cors",
-      });
-      setStatus("success");
-      setTimeout(() => {
-        setIsOpen(false);
-        setStatus("idle");
-        e.target.reset();
-      }, 3000);
-    } catch (error) {
-      console.error("Submission failed", error);
-      setStatus("idle");
-    }
-  };
-
-  // Only render the modal — no floating button (header already has Book Now)
   if (!isOpen) return null;
 
   return (
-    <div style={styles.overlay}>
-      <div style={styles.modal}>
+    <div style={styles.overlay} onClick={() => setIsOpen(false)}>
+      <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
         <button
           style={styles.closeBtn}
           onClick={() => setIsOpen(false)}
@@ -57,100 +35,52 @@ export default function BookingPopup() {
           ✕
         </button>
 
-        <h2 style={{ color: "#C9A84C", marginBottom: "5px" }}>
-          Book Your Session
+        {/* Decorative top line */}
+        <div style={styles.topLine} />
+
+        <p style={styles.eyebrow}>Exclusive Offer</p>
+
+        <h2 style={styles.heading}>
+          Reserve Your
+          <br />
+          <span style={{ color: GOLD }}>Royal Experience</span>
         </h2>
-        <p style={{ color: "#aaa", marginBottom: "20px", fontSize: "14px" }}>
-          Experience luxury at The Royal Saloon &amp; Spa
+
+        <p style={styles.sub}>
+          Indulge in luxury treatments crafted entirely around you — your skin,
+          your mood, your moment of peace.
         </p>
 
-        {status === "success" ? (
-          <div style={{ color: "#4CAF50", padding: "20px 0" }}>
-            Booking request sent! We will call you shortly.
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} style={styles.form}>
-            <input
-              required
-              name="name"
-              type="text"
-              placeholder="Your Name"
-              style={styles.input}
-            />
-            <input
-              required
-              name="phone"
-              type="tel"
-              placeholder="Phone Number"
-              style={styles.input}
-            />
+        {/* Trust badges */}
+        <div style={styles.badges}>
+          {["Certified Therapists", "Premium Products", "5-Star Rated"].map(
+            (b) => (
+              <span key={b} style={styles.badge}>
+                ✦ {b}
+              </span>
+            ),
+          )}
+        </div>
 
-            <select required name="service" style={styles.input}>
-              <option value="">Select a Service...</option>
-              <optgroup label="Classic Massages">
-                <option value="Head Massage - ₹500">Head Massage — ₹500</option>
-                <option value="Foot Massage - ₹700">Foot Massage — ₹700</option>
-                <option value="Legs and Hands Massage - ₹1000">
-                  Legs and Hands Massage — ₹1,000
-                </option>
-                <option value="Back Massage - ₹1000">
-                  Back Massage — ₹1,000
-                </option>
-                <option value="Basic Massage - ₹1500">
-                  Basic Massage — ₹1,500
-                </option>
-              </optgroup>
-              <optgroup label="Signature Massages">
-                <option value="Normal Cream Massage">
-                  Normal Cream Massage
-                </option>
-                <option value="Swedish Massage">Swedish Massage</option>
-                <option value="Aroma Massage">Aroma Massage</option>
-                <option value="Thai Massage">Thai Massage</option>
-                <option value="Bellyness Massage">Bellyness Massage</option>
-                <option value="Deep Tissue Massage">Deep Tissue Massage</option>
-              </optgroup>
-              <optgroup label="Body Polish">
-                <option value="Body Polish (45 min) - ₹2500">
-                  Body Polish 45 min — ₹2,500
-                </option>
-                <option value="Body Polish (60 min) - ₹3000">
-                  Body Polish 60 min — ₹3,000
-                </option>
-                <option value="Body Polish (90 min) - ₹3500">
-                  Body Polish 90 min — ₹3,500
-                </option>
-                <option value="Body Polish (120 min) - ₹4500">
-                  Body Polish 120 min — ₹4,500
-                </option>
-              </optgroup>
-              <optgroup label="Special Offers">
-                <option value="Women's Special 60 Min - ₹2999">
-                  Women's Special 60 Min — ₹2,999
-                </option>
-                <option value="Special Package 90 Min - ₹3999">
-                  Special Package 90 Min — ₹3,999
-                </option>
-              </optgroup>
-            </select>
+        <Link
+          to="/booking"
+          onClick={() => setIsOpen(false)}
+          style={styles.cta}
+          onMouseOver={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = GOLD;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.background = GOLD;
+            e.currentTarget.style.color = BLACK;
+          }}
+        >
+          Book Now — It&apos;s Free
+        </Link>
 
-            <input
-              required
-              name="date"
-              type="date"
-              min={new Date().toISOString().split("T")[0]}
-              style={styles.input}
-            />
-
-            <button
-              type="submit"
-              disabled={status === "submitting"}
-              style={styles.submitBtn}
-            >
-              {status === "submitting" ? "Sending..." : "Request Booking"}
-            </button>
-          </form>
-        )}
+        <button onClick={() => setIsOpen(false)} style={styles.dismissBtn}>
+          Maybe later
+        </button>
       </div>
     </div>
   );
@@ -163,53 +93,109 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0,0,0,0.8)",
+    backgroundColor: "rgba(0,0,0,0.75)",
     zIndex: 9999,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    backdropFilter: "blur(4px)",
   },
   modal: {
-    backgroundColor: "#0A0A0A",
-    padding: "30px",
-    borderRadius: "8px",
-    border: "1px solid #C9A84C",
+    backgroundColor: "#0D0D0D",
+    padding: "40px 36px 32px",
+    borderRadius: "2px",
+    border: "1px solid rgba(201,168,76,0.35)",
     width: "90%",
-    maxWidth: "400px",
+    maxWidth: "420px",
     position: "relative",
     textAlign: "center",
-    color: "white",
-    maxHeight: "90vh",
-    overflowY: "auto",
+    color: WHITE,
+    boxShadow: "0 24px 80px rgba(0,0,0,0.7)",
+  },
+  topLine: {
+    position: "absolute",
+    top: 0,
+    left: "20%",
+    right: "20%",
+    height: "2px",
+    background: "linear-gradient(90deg, transparent, #C9A84C, transparent)",
   },
   closeBtn: {
     position: "absolute",
-    top: "10px",
-    right: "15px",
+    top: "14px",
+    right: "16px",
     background: "none",
     border: "none",
-    color: "#C9A84C",
-    fontSize: "20px",
+    color: MUTED,
+    fontSize: "18px",
+    cursor: "pointer",
+    lineHeight: 1,
+    padding: "4px",
+    transition: "color 0.2s",
+  },
+  eyebrow: {
+    fontSize: "10px",
+    letterSpacing: "4px",
+    textTransform: "uppercase",
+    color: GOLD,
+    marginBottom: "16px",
+    marginTop: "8px",
+  },
+  heading: {
+    fontFamily: "'Cormorant Garamond', serif",
+    fontSize: "clamp(26px, 5vw, 36px)",
+    fontWeight: 300,
+    color: WHITE,
+    lineHeight: 1.25,
+    marginBottom: "16px",
+  },
+  sub: {
+    color: MUTED,
+    fontSize: "14px",
+    lineHeight: 1.7,
+    marginBottom: "24px",
+    maxWidth: "320px",
+    margin: "0 auto 24px",
+  },
+  badges: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "8px",
+    marginBottom: "28px",
+  },
+  badge: {
+    fontSize: "10px",
+    letterSpacing: "1.5px",
+    color: "rgba(201,168,76,0.7)",
+    border: "1px solid rgba(201,168,76,0.2)",
+    padding: "5px 10px",
+    borderRadius: "2px",
+  },
+  cta: {
+    display: "block",
+    background: GOLD,
+    color: BLACK,
+    padding: "14px 32px",
+    fontSize: "11px",
+    letterSpacing: "3px",
+    textTransform: "uppercase",
+    textDecoration: "none",
+    fontFamily: "'Jost', sans-serif",
+    fontWeight: 600,
+    border: "1px solid #C9A84C",
+    transition: "all 0.3s",
+    marginBottom: "14px",
     cursor: "pointer",
   },
-  form: { display: "flex", flexDirection: "column", gap: "15px" },
-  input: {
-    padding: "12px",
-    borderRadius: "4px",
-    border: "1px solid #333",
-    backgroundColor: "#1A1A1A",
-    color: "white",
-    fontSize: "16px",
-  },
-  submitBtn: {
-    padding: "12px",
-    backgroundColor: "#C9A84C",
-    color: "black",
+  dismissBtn: {
+    background: "none",
     border: "none",
-    borderRadius: "4px",
-    fontSize: "16px",
-    fontWeight: "bold",
+    color: MUTED,
+    fontSize: "12px",
     cursor: "pointer",
-    marginTop: "10px",
+    padding: "4px 8px",
+    textDecoration: "underline",
+    textUnderlineOffset: "3px",
   },
 };

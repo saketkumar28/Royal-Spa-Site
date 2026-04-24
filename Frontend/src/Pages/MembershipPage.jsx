@@ -43,7 +43,9 @@ const MEMBERSHIPS = [
 ];
 
 export default function MembershipsPage() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth < 992 : false,
+  );
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 992);
