@@ -16,6 +16,8 @@ import AdminDashboard from "./Pages/AdminDashboard";
 import NotFoundPage from "./Pages/NotFoundPage";
 import BookingPopup from "./Components/BookingPopup.jsx";
 import MembershipPage from "./Pages/MembershipPage.jsx";
+import PrivacyPage from "./Pages/PrivacyPage.jsx";
+import TermsPage from "./Pages/TermsPage.jsx";
 
 // Inject global styles once
 function GlobalStyles() {
@@ -85,6 +87,8 @@ export default function App() {
           <Route path="/journal" element={<JournalPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
 
           {/* Admin routes */}
           <Route

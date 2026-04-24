@@ -219,21 +219,33 @@ export default function ContactPage() {
                 Follow Us
               </p>
               <div style={{ display: "flex", gap: 16 }}>
-                {["Instagram", "Facebook", "Pinterest"].map((s) => (
+                {[
+                  {
+                    name: "Instagram",
+                    href: "https://www.instagram.com/theroyalsalonandspa_hyd?igsh=MTQzOXh6dm94aDVoOA%3D%3D&utm_source=qr",
+                  },
+                  {
+                    name: "Facebook",
+                    href: "https://www.facebook.com/theroyalsaloonandspa",
+                  },
+                ].map((s) => (
                   <a
-                    key={s}
-                    href="#"
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       fontSize: 12,
                       color: MUTED,
                       letterSpacing: 1.5,
                       textTransform: "uppercase",
                       transition: "color 0.3s",
+                      textDecoration: "none",
                     }}
                     onMouseOver={(e) => (e.target.style.color = GOLD)}
                     onMouseOut={(e) => (e.target.style.color = MUTED)}
                   >
-                    {s}
+                    {s.name}
                   </a>
                 ))}
               </div>

@@ -9,7 +9,6 @@ export default function Footer() {
       url: "https://www.instagram.com/theroyalsalonandspa_hyd?igsh=MTQzOXh6dm94aDVoOA%3D%3D&utm_source=qr",
     },
     { name: "Facebook", url: "https://www.facebook.com/theroyalsaloonandspa" },
-    { name: "Pinterest", url: "https://pinterest.com/your-profile" },
   ];
 
   const cols = [

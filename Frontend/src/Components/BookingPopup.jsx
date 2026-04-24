@@ -134,7 +134,13 @@ export default function BookingPopup() {
               </optgroup>
             </select>
 
-            <input required name="date" type="date" style={styles.input} />
+            <input
+              required
+              name="date"
+              type="date"
+              min={new Date().toISOString().split("T")[0]}
+              style={styles.input}
+            />
 
             <button
               type="submit"
