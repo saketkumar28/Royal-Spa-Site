@@ -1,5 +1,6 @@
 const express = require("express");
 const { body, validationResult } = require("express-validator");
+const { sendContactMessage } = require("../Services/email.service.js");
 const router = express.Router();
 
 // POST /api/contact
@@ -16,9 +17,13 @@ router.post(
       return res.status(400).json({ success: false, errors: errors.array() });
 
     try {
-      // In production: send email via nodemailer here
       const { name, email, phone, subject, message } = req.body;
-      console.log("📩 Contact form submission:", { name, email, subject });
+
+      // Send email to admin (non-blocking — contact form succeeds even if email fails)
+      sendContactMessage({ name, email, phone, subject, message }).catch(
+        (err) => console.error("Contact email error:", err.message),
+      );
+
       res.json({
         success: true,
         message: "Your message has been received. We'll be in touch soon!",
