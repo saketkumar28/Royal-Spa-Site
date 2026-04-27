@@ -25,7 +25,7 @@ const INFO = [
   {
     icon: "❋",
     label: "Email",
-    value: "info@theroyalspa.in",
+    value: "theroyalsalonandspa@gmail.com",
   },
   {
     icon: "◈",
