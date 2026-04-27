@@ -1057,7 +1057,7 @@ function InstagramGallery() {
         </div>
         <div style={{ textAlign: "center", marginTop: 40 }}>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/theroyalsalonandspa_hyd?igsh=MTQzOXh6dm94aDVoOA%3D%3D&utm_source=qr"
             target="_blank"
             rel="noreferrer"
             className="btn-gold"

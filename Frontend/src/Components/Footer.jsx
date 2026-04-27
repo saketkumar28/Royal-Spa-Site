@@ -96,7 +96,7 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              Saloon & Spa
+              Salon & Spa
             </p>
             <p
               style={{
@@ -215,7 +215,7 @@ export default function Footer() {
           }}
         >
           <p style={{ fontSize: 12, color: MUTED }}>
-            © 2026 The Royal Saloon & Spa. All rights reserved. Crafted by Saket
+            © 2026 The Royal Salon & Spa. All rights reserved. Crafted by Saket
             Kumar.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
