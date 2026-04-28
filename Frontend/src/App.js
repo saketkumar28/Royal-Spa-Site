@@ -25,6 +25,7 @@ import FloatingButtons from "./Components/FloatingButtons.jsx";
 import MembershipPage from "./Pages/MembershipPage.jsx";
 import PrivacyPage from "./Pages/PrivacyPage.jsx";
 import TermsPage from "./Pages/TermsPage.jsx";
+import SpaLandingPage from "./Pages/SpaLandingPage.jsx";
 
 // Inject global styles once
 function GlobalStyles() {
@@ -98,6 +99,7 @@ export default function App() {
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/spa" element={<SpaLandingPage />} />
 
           {/* Admin routes */}
           <Route

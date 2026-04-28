@@ -1,0 +1,2143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KB2BDLRV");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      The Royal Salon & Spa — Where Luxury Meets Serenity | Hyderabad
+    </title>
+    <meta
+      name="description"
+      content="The Royal Salon & Spa, Kothaguda, Hyderabad. Classic massages, signature treatments, Body Polish & exclusive memberships. Open daily 10 AM–9 PM. Est. 2008."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --sage: #7aab9c;
+        --sage-lt: #a8c9be;
+        --sage-dk: #4d8a7a;
+        --stone: #c8b89a;
+        --cream: #faf7f2;
+        --warm: #f3ede3;
+        --charcoal: #3a3632;
+        --mid: #7a746e;
+        --light: #b8b0a6;
+        --white: #ffffff;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Jost", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--cream);
+        color: var(--charcoal);
+        font-weight: 300;
+        overflow-x: hidden;
+      }
+
+      /* ─── NAV ─────────────────────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 4vw;
+        background: rgba(250, 247, 242, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(200, 184, 154, 0.25);
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 2px 24px rgba(58, 54, 50, 0.08);
+      }
+
+      .nav-logo {
+        font-family: var(--serif);
+        font-size: 1.45rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        color: var(--charcoal);
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--sage);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.4rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--mid);
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .nav-links a:hover {
+        color: var(--sage-dk);
+      }
+
+      .nav-cta {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: var(--sage);
+        color: var(--white);
+        padding: 0.65rem 1.6rem;
+        border: none;
+        cursor: pointer;
+        transition: background 0.25s;
+        text-decoration: none;
+      }
+      .nav-cta:hover {
+        background: var(--sage-dk);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--charcoal);
+        transition: 0.3s;
+      }
+
+      /* ─── HERO ───────────────────────────────────────────── */
+      #hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url("https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1600")
+          center/cover no-repeat;
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(58, 54, 50, 0.35) 0%,
+          rgba(58, 54, 50, 0.18) 45%,
+          rgba(58, 54, 50, 0.55) 100%
+        );
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 3rem;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        padding: 7rem 4vw 4rem;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-lotus {
+        display: block;
+        margin: 0 auto 1.5rem;
+        font-size: 2.4rem;
+        opacity: 0.9;
+        animation: floatLotus 4s ease-in-out infinite;
+      }
+      @keyframes floatLotus {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .hero-eyebrow {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--stone);
+        margin-bottom: 0.9rem;
+      }
+
+      .hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        color: var(--white);
+        line-height: 1.15;
+        margin-bottom: 1.1rem;
+      }
+
+      .hero-sub {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.75;
+        max-width: 420px;
+        margin: 0 auto 2rem;
+      }
+
+      .hero-scroll {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-top: 1rem;
+      }
+      .hero-scroll .chevron {
+        width: 26px;
+        height: 26px;
+        border-right: 1.5px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+        transform: rotate(45deg);
+        animation: chevBounce 1.6s ease-in-out infinite;
+      }
+      @keyframes chevBounce {
+        0%,
+        100% {
+          transform: rotate(45deg) translateY(0);
+          opacity: 0.6;
+        }
+        50% {
+          transform: rotate(45deg) translateY(6px);
+          opacity: 1;
+        }
+      }
+
+      /* ─── CONTACT FORM on banner ──────────────────────────── */
+      .hero-form-card {
+        background: rgba(250, 247, 242, 0.96);
+        backdrop-filter: blur(16px);
+        padding: 2.4rem 2rem;
+        box-shadow: 0 20px 60px rgba(58, 54, 50, 0.22);
+        animation: slideInRight 0.8s ease both;
+        animation-delay: 0.3s;
+      }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .form-title {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--charcoal);
+        margin-bottom: 0.3rem;
+      }
+      .form-subtitle {
+        font-size: 0.78rem;
+        color: var(--mid);
+        letter-spacing: 0.05em;
+        margin-bottom: 1.6rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mid);
+        margin-bottom: 0.4rem;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+        background: var(--warm);
+        border: 1px solid rgba(200, 184, 154, 0.5);
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        color: var(--charcoal);
+        outline: none;
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--sage);
+        box-shadow: 0 0 0 3px rgba(122, 171, 156, 0.15);
+      }
+      .form-group textarea {
+        resize: none;
+        height: 80px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 0.85rem;
+        background: var(--sage);
+        color: var(--white);
+        border: none;
+        cursor: pointer;
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          transform 0.15s;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+      .btn-submit:hover {
+        background: var(--sage-dk);
+        transform: translateY(-1px);
+      }
+      .btn-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .form-note {
+        text-align: center;
+        font-size: 0.72rem;
+        color: var(--light);
+        margin-top: 0.7rem;
+      }
+
+      .form-status {
+        display: none;
+        padding: 0.7rem;
+        text-align: center;
+        font-size: 0.82rem;
+        margin-top: 0.5rem;
+      }
+      .form-status.success {
+        display: block;
+        background: rgba(122, 171, 156, 0.15);
+        color: var(--sage-dk);
+      }
+      .form-status.error {
+        display: block;
+        background: rgba(180, 80, 80, 0.1);
+        color: #c05050;
+      }
+
+      /* ─── SECTION COMMON ──────────────────────────────────── */
+      section {
+        padding: 5.5rem 4vw;
+      }
+
+      .section-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sage);
+        display: block;
+        margin-bottom: 0.7rem;
+        text-align: center;
+      }
+      .section-title {
+        font-family: var(--serif);
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 300;
+        text-align: center;
+        color: var(--charcoal);
+        line-height: 1.2;
+        margin-bottom: 3.5rem;
+      }
+
+      /* ─── SERVICES ────────────────────────────────────────── */
+      #services {
+        background: var(--cream);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        text-align: center;
+        transition: transform 0.35s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+      }
+
+      .service-img-wrap {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 3/2;
+        margin-bottom: 1.5rem;
+      }
+      .service-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .service-card:hover .service-img-wrap img {
+        transform: scale(1.07);
+      }
+
+      .service-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(77, 138, 122, 0.6) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.35s;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 1.2rem;
+      }
+      .service-card:hover .service-overlay {
+        opacity: 1;
+      }
+      .service-overlay span {
+        color: #fff;
+        font-size: 0.74rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+        padding-bottom: 2px;
+      }
+
+      .service-name {
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        font-weight: 400;
+        color: var(--sage-dk);
+        margin-bottom: 0.7rem;
+      }
+      .service-desc {
+        font-size: 0.85rem;
+        color: var(--mid);
+        line-height: 1.75;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      /* ─── SIGNUP / ABOUT ──────────────────────────────────── */
+      #about {
+        background: var(--warm);
+        padding: 0;
+      }
+
+      .signup-bar {
+        background: linear-gradient(
+          135deg,
+          var(--sage) 0%,
+          var(--sage-dk) 100%
+        );
+        padding: 2rem 4vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+      }
+      .signup-bar-text {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #fff;
+      }
+      .signup-bar-icon {
+        font-size: 2rem;
+      }
+      .signup-bar-copy strong {
+        display: block;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .signup-bar-copy span {
+        font-size: 0.78rem;
+        opacity: 0.85;
+      }
+
+      .signup-form {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .signup-form input {
+        padding: 0.7rem 1.2rem;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        outline: none;
+        min-width: 220px;
+        transition: background 0.25s;
+      }
+      .signup-form input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .signup-form input:focus {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .signup-btn {
+        padding: 0.7rem 1.5rem;
+        background: #fff;
+        color: var(--sage-dk);
+        border: none;
+        cursor: pointer;
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          color 0.25s;
+      }
+      .signup-btn:hover {
+        background: var(--warm);
+      }
+
+      .about-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 5rem 4vw;
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-img {
+        position: relative;
+      }
+      .about-img img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        box-shadow: 20px 20px 0 var(--sage-lt);
+      }
+      .about-accent {
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid var(--stone);
+        opacity: 0.5;
+      }
+
+      .about-eyebrow {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--sage);
+        margin-bottom: 0.5rem;
+      }
+      .about-title {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--charcoal);
+        margin-bottom: 0.6rem;
+      }
+      .about-tagline {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-style: italic;
+        color: var(--sage-dk);
+        margin-bottom: 1.3rem;
+      }
+      .about-body {
+        font-size: 0.88rem;
+        line-height: 1.85;
+        color: var(--mid);
+        margin-bottom: 1rem;
+      }
+      .about-link {
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--sage-dk);
+        text-decoration: none;
+        border-bottom: 1px solid var(--sage-lt);
+        padding-bottom: 1px;
+        transition:
+          color 0.25s,
+          border-color 0.25s;
+      }
+      .about-link:hover {
+        color: var(--charcoal);
+        border-color: var(--charcoal);
+      }
+
+      /* ─── SPA GALLERY ─────────────────────────────────────── */
+      #gallery {
+        background: var(--cream);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 240px 240px;
+        gap: 0.6rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.6s ease,
+          filter 0.4s;
+        filter: saturate(0.85);
+      }
+      .gallery-item:hover img {
+        transform: scale(1.08);
+        filter: saturate(1.1);
+      }
+      .gallery-item .gal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(77, 138, 122, 0);
+        transition: background 0.4s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gallery-item:hover .gal-overlay {
+        background: rgba(77, 138, 122, 0.18);
+      }
+      .gallery-item .gal-icon {
+        color: #fff;
+        font-size: 2rem;
+        opacity: 0;
+        transform: scale(0.6);
+        transition:
+          opacity 0.35s,
+          transform 0.35s;
+      }
+      .gallery-item:hover .gal-icon {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* ─── OFFERS / PRICING ────────────────────────────────── */
+      #offers {
+        background: var(--warm);
+      }
+
+      .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .offer-card {
+        background: var(--white);
+        border: 1px solid rgba(200, 184, 154, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .offer-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(58, 54, 50, 0.1);
+      }
+      .offer-card.featured {
+        background: var(--sage);
+        border-color: var(--sage);
+        transform: scale(1.04);
+        box-shadow: 0 16px 48px rgba(77, 138, 122, 0.3);
+      }
+      .offer-card.featured:hover {
+        transform: scale(1.04) translateY(-5px);
+      }
+
+      .offer-name {
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        margin-bottom: 1.3rem;
+      }
+      .offer-card.featured .offer-name {
+        color: #fff;
+      }
+
+      .offer-price-wrap {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--warm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        flex-direction: column;
+      }
+      .offer-card.featured .offer-price-wrap {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .offer-price {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: var(--charcoal);
+        line-height: 1;
+      }
+      .offer-card.featured .offer-price {
+        color: #fff;
+      }
+
+      .offer-sup {
+        font-size: 0.85rem;
+        vertical-align: super;
+      }
+      .offer-unit {
+        font-size: 0.65rem;
+        color: var(--mid);
+        letter-spacing: 0.06em;
+        margin-top: 0.15rem;
+      }
+      .offer-card.featured .offer-unit {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .offer-features {
+        list-style: none;
+        width: 100%;
+        margin-bottom: 1.8rem;
+        flex: 1;
+      }
+      .offer-features li {
+        font-size: 0.82rem;
+        color: var(--mid);
+        padding: 0.55rem 0;
+        border-bottom: 1px solid rgba(200, 184, 154, 0.2);
+      }
+      .offer-card.featured .offer-features li {
+        color: rgba(255, 255, 255, 0.85);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .offer-btn {
+        padding: 0.7rem 1.4rem;
+        border: 1px solid var(--sage);
+        background: transparent;
+        color: var(--sage-dk);
+        cursor: pointer;
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          color 0.25s;
+        width: 100%;
+      }
+      .offer-btn:hover {
+        background: var(--sage);
+        color: #fff;
+        border-color: var(--sage);
+      }
+      .offer-card.featured .offer-btn {
+        background: #fff;
+        color: var(--sage-dk);
+        border-color: #fff;
+      }
+      .offer-card.featured .offer-btn:hover {
+        background: var(--warm);
+      }
+
+      /* ─── REVIEWS ─────────────────────────────────────────── */
+      #reviews {
+        background: var(--cream);
+      }
+
+      .reviews-track {
+        max-width: 820px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .review-card {
+        background: var(--warm);
+        padding: 2.5rem 3rem;
+        display: none;
+        position: relative;
+        border-left: 3px solid var(--sage-lt);
+      }
+      .review-card.active {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .review-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--white);
+        box-shadow: 0 4px 16px rgba(58, 54, 50, 0.12);
+      }
+
+      .review-stars {
+        color: var(--sage);
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .review-author {
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--charcoal);
+      }
+      .review-location {
+        font-size: 0.75rem;
+        color: var(--mid);
+        margin-bottom: 0.9rem;
+      }
+      .review-text {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-style: italic;
+        color: var(--mid);
+        line-height: 1.8;
+      }
+
+      .review-quote {
+        position: absolute;
+        bottom: 1.5rem;
+        right: 2rem;
+        font-family: var(--serif);
+        font-size: 6rem;
+        line-height: 1;
+        color: var(--sage-lt);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .review-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 1.8rem;
+      }
+      .review-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--light);
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+        padding: 0;
+      }
+      .review-dot.active {
+        background: var(--sage);
+        transform: scale(1.3);
+      }
+
+      /* ─── FOOTER ──────────────────────────────────────────── */
+      footer {
+        background: var(--charcoal);
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* contact section inside footer */
+      .footer-contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 5rem 4vw;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .footer-map-placeholder {
+        background: #4a4540;
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+      }
+      .footer-map-placeholder .map-pin {
+        font-size: 2.5rem;
+      }
+
+      .footer-contact-form h3 {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 300;
+        color: #fff;
+        margin-bottom: 0.4rem;
+      }
+      .footer-contact-form p {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 2rem;
+      }
+      .footer-contact-form .form-group label {
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .footer-contact-form .form-group input,
+      .footer-contact-form .form-group select,
+      .footer-contact-form .form-group textarea {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+      .footer-contact-form .form-group input:focus,
+      .footer-contact-form .form-group textarea:focus {
+        border-color: var(--sage-lt);
+        box-shadow: 0 0 0 3px rgba(122, 171, 156, 0.12);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 2.5rem 4vw;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-logo {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        color: #fff;
+        text-decoration: none;
+      }
+      .footer-logo span {
+        color: var(--sage-lt);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.8rem;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .footer-links a:hover {
+        color: var(--sage-lt);
+      }
+
+      .footer-copy {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* ─── MOBILE NAV ──────────────────────────────────────── */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 2rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: var(--charcoal);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      .mobile-menu-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: var(--mid);
+      }
+
+      /* ─── RESPONSIVE ──────────────────────────────────────── */
+      @media (max-width: 1024px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          max-width: 520px;
+        }
+        .hero-form-card {
+          animation: none;
+        }
+        .offers-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .offer-card.featured {
+          transform: none;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+          max-width: 420px;
+        }
+        .about-inner {
+          grid-template-columns: 1fr;
+        }
+        .about-img {
+          max-width: 320px;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(3, 200px);
+        }
+        .footer-contact {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-links {
+          justify-content: center;
+        }
+        .review-card.active {
+          grid-template-columns: 1fr;
+        }
+        .review-avatar {
+          width: 56px;
+          height: 56px;
+        }
+        section {
+          padding: 4rem 5vw;
+        }
+        .signup-bar {
+          gap: 1.5rem;
+        }
+        .signup-form input {
+          min-width: 160px;
+        }
+      }
+      @media (max-width: 500px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(6, 180px);
+        }
+        .offers-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-inner {
+          padding-top: 5rem;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ─── SCROLL REVEAL ───────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.12s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.24s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.36s;
+      }
+    </style>
+  </head>
+  <script>
+    const CONTACT_KEY = "448c9b23-6deb-41af-9ec2-477285b5ef93";
+  </script>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KB2BDLRV"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- ─── NAV ─────────────────────────────────────────────── -->
+    <nav id="navbar">
+      <a href="#hero" class="nav-logo">The Royal <span>Salon & Spa</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Treatments</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+      <a href="#hero" class="nav-cta">Book Now</a>
+      <div
+        class="hamburger"
+        id="hamburger"
+        aria-label="Open menu"
+        role="button"
+        tabindex="0"
+      >
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-label="Navigation menu"
+    >
+      <button
+        class="mobile-menu-close"
+        id="mobileClose"
+        aria-label="Close menu"
+      >
+        ✕
+      </button>
+      <a href="#services" class="mm-link">Treatments</a>
+      <a href="#about" class="mm-link">About</a>
+      <a href="#gallery" class="mm-link">Gallery</a>
+      <a href="#offers" class="mm-link">Offers</a>
+      <a href="#reviews" class="mm-link">Reviews</a>
+      <a href="#footer-contact" class="mm-link">Contact</a>
+    </div>
+
+    <!-- ─── HERO ───────────────────────────────────────────── -->
+    <section id="hero">
+      <div class="hero-bg" role="img" aria-label="Serene spa environment"></div>
+      <div class="hero-inner">
+        <!-- Left: headline -->
+        <div class="hero-text">
+          <p class="hero-eyebrow">Est. 2008 · Banjara Hills, Hyderabad</p>
+          <h1 class="hero-title">The Royal Salon<br />&amp; SPA</h1>
+          <p class="hero-sub">
+            Where Luxury Meets Serenity — a premium wellness destination in the
+            heart of Hyderabad, open daily 10 AM to 9 PM.
+          </p>
+          <div class="hero-scroll" aria-hidden="true">
+            <div class="chevron"></div>
+            <span>Discover</span>
+          </div>
+        </div>
+
+        <!-- Right: contact / booking form -->
+        <div class="hero-form-card">
+          <p class="form-title">Book an Appointment</p>
+          <p class="form-subtitle">
+            Prior appointment required · Please arrive 15 mins early
+          </p>
+
+          <form id="heroForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="h-name">First Name</label>
+                <input
+                  type="text"
+                  id="h-name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  autocomplete="given-name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="h-lname">Last Name</label>
+                <input
+                  type="text"
+                  id="h-lname"
+                  name="lastname"
+                  placeholder="Last name"
+                  autocomplete="family-name"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="h-phone">Phone / WhatsApp *</label>
+              <input
+                type="tel"
+                id="h-phone"
+                name="phone"
+                placeholder="+91 9XXXXXXXXX"
+                required
+                autocomplete="tel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="h-email">Email Address</label>
+              <input
+                type="email"
+                id="h-email"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="h-service">Treatment</label>
+              <select id="h-service" name="service">
+                <option value="">Select a treatment…</option>
+                <optgroup label="Classic Massages">
+                  <option>Head Massage — ₹500</option>
+                  <option>Foot Massage — ₹700</option>
+                  <option>Leg's and Hands Massage — ₹1,000</option>
+                  <option>Back Massage — ₹1,000</option>
+                  <option>Basic Massage — ₹1,500</option>
+                </optgroup>
+                <optgroup label="Signature Massages">
+                  <option>Normal Cream Massage</option>
+                  <option>Swedish Massage</option>
+                  <option>Aroma Massage</option>
+                  <option>Thai Massage</option>
+                  <option>Bellyness Massage</option>
+                  <option>Deep Tissue Massage</option>
+                </optgroup>
+                <optgroup label="Premium">
+                  <option>Body Polish (45–120 min)</option>
+                  <option>Special Package 90 min — ₹3,999</option>
+                  <option>Women's Special 60 min — ₹2,999</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="h-date">Preferred Date</label>
+                <input type="date" id="h-date" name="date" />
+              </div>
+              <div class="form-group">
+                <label for="h-time">Preferred Time</label>
+                <select id="h-time" name="time">
+                  <option value="">Select…</option>
+                  <option>10:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option>12:00 PM</option>
+                  <option>1:00 PM</option>
+                  <option>2:00 PM</option>
+                  <option>3:00 PM</option>
+                  <option>4:00 PM</option>
+                  <option>5:00 PM</option>
+                  <option>6:00 PM</option>
+                  <option>7:00 PM</option>
+                  <option>8:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit" id="heroSubmitBtn">
+              <span id="heroSubmitText">Request Appointment</span>
+              <span id="heroSubmitSpinner" style="display: none">⏳</span>
+            </button>
+            <p class="form-note">
+              Max 15-min delay policy applies · T&amp;C apply
+            </p>
+            <div class="form-status" id="heroFormStatus"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SERVICES ────────────────────────────────────────── -->
+    <section id="services">
+      <span class="section-label">Our Treatments</span>
+      <h2 class="section-title">Classic Massages — Professional Treatment</h2>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Head and back massage therapy"
+            />
+            <div class="service-overlay"><span>Book Now</span></div>
+          </div>
+          <h3 class="service-name">Head & Back Massage</h3>
+          <p class="service-desc">
+            Head Massage ₹500 · Back Massage ₹1,000. Expert therapists targeting
+            tension points for deep relief. Professional treatment by trained
+            hands.
+          </p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/3985330/pexels-photo-3985330.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Foot and leg massage"
+            />
+            <div class="service-overlay"><span>Book Now</span></div>
+          </div>
+          <h3 class="service-name">Foot & Leg Massage</h3>
+          <p class="service-desc">
+            Foot Massage ₹700 · Leg's and Hands Massage ₹1,000. Revive tired
+            legs and feet with our restorative touch therapy. Expert therapists
+            available daily.
+          </p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Full body massage"
+            />
+            <div class="service-overlay"><span>Book Now</span></div>
+          </div>
+          <h3 class="service-name">Basic Full Body Massage</h3>
+          <p class="service-desc">
+            Basic Massage ₹1,500. A complete full-body experience combining
+            classic techniques for total relaxation. Professional treatment ·
+            Expert therapists.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SIGN UP BAR + ABOUT ────────────────────────────── -->
+    <div id="about">
+      <!-- Newsletter signup bar -->
+      <div class="signup-bar" id="signup">
+        <div class="signup-bar-text">
+          <span class="signup-bar-icon" aria-hidden="true">🎁</span>
+          <div class="signup-bar-copy">
+            <strong>Sign up for amazing offers</strong>
+            <span>Sign up and get your welcome present today</span>
+          </div>
+        </div>
+        <form class="signup-form" id="signupForm" novalidate>
+          <label
+            for="nl-email"
+            class="sr-only"
+            style="position: absolute; clip: rect(0, 0, 0, 0)"
+            >Email address</label
+          >
+          <input
+            type="email"
+            id="nl-email"
+            placeholder="Enter your E-Mail address…"
+            required
+            autocomplete="email"
+          />
+          <button type="submit" class="signup-btn" id="nlBtn">
+            Subscribe →
+          </button>
+        </form>
+      </div>
+
+      <!-- About section -->
+      <div class="about-inner">
+        <div class="about-img reveal">
+          <div class="about-accent" aria-hidden="true"></div>
+          <img
+            src="https://images.pexels.com/photos/3187612/pexels-photo-3187612.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Spa stones and orchid — The Royal Salon & Spa"
+          />
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="about-eyebrow">Est. 2008 · Banjara Hills</p>
+          <h2 class="about-title">About The Royal Salon &amp; Spa</h2>
+          <p class="about-tagline">Where Luxury Meets Serenity.</p>
+          <p class="about-body">
+            Since 2008, The Royal Salon &amp; Spa has been Hyderabad's
+            destination for premium massage and wellness. Located in Kothaguda,
+            Banjara Hills, our expert therapists deliver Classic and Signature
+            massages, Body Polish, and exclusive packages crafted to restore
+            your body and mind.
+          </p>
+          <p class="about-body">
+            Open every day from 10:00 AM to 9:00 PM. Prior appointment
+            recommended. We offer Silver, Gold, Platinum and Diamond memberships
+            for our loyal guests.
+          </p>
+          <a href="#offers" class="about-link">Explore our treatments →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── SPA GALLERY ─────────────────────────────────────── -->
+    <section id="gallery">
+      <span class="section-label">The Royal Experience</span>
+      <h2 class="section-title">Images of the Spa</h2>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img
+            src="https://images.pexels.com/photos/6823612/pexels-photo-6823612.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Spa bathroom with natural light"
+          />
+          <div class="gal-overlay"><span class="gal-icon">✦</span></div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-1">
+          <img
+            src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Wooden spa accessories and towels"
+          />
+          <div class="gal-overlay"><span class="gal-icon">✦</span></div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-2">
+          <img
+            src="https://images.pexels.com/photos/6186812/pexels-photo-6186812.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Tranquil spa bedroom suite"
+          />
+          <div class="gal-overlay"><span class="gal-icon">✦</span></div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-1">
+          <img
+            src="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Sauna with natural wood walls"
+          />
+          <div class="gal-overlay"><span class="gal-icon">✦</span></div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-2">
+          <img
+            src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Modern spa sink and basin"
+          />
+          <div class="gal-overlay"><span class="gal-icon">✦</span></div>
+        </div>
+        <div class="gallery-item reveal reveal-delay-3">
+          <img
+            src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=700"
+            alt="Fluffy white spa towels"
+          />
+          <div class="gal-overlay"><span class="gal-icon">✦</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── OFFERS / PRICING ────────────────────────────────── -->
+    <section id="offers">
+      <span class="section-label">Exclusively Crafted for You</span>
+      <h2 class="section-title">Our top Wellness and Spa offers</h2>
+
+      <div class="offers-grid">
+        <div class="offer-card reveal">
+          <div class="offer-name">Signature Massage</div>
+          <div class="offer-price-wrap">
+            <div class="offer-price"><sup class="offer-sup">₹</sup>1,500</div>
+            <div class="offer-unit">from / 45 min</div>
+          </div>
+          <ul class="offer-features">
+            <li>Normal Cream or Swedish</li>
+            <li>45 / 60 / 90 min sessions</li>
+            <li>Expert therapist assigned</li>
+            <li>Up to ₹2,500 for 90 min</li>
+          </ul>
+          <button class="offer-btn" onclick="scrollToHero()">
+            Request an Appointment
+          </button>
+        </div>
+
+        <div class="offer-card featured reveal reveal-delay-1">
+          <div class="offer-name">Special Package</div>
+          <div class="offer-price-wrap">
+            <div class="offer-price"><sup class="offer-sup">₹</sup>3,999</div>
+            <div class="offer-unit">NET / 90 min</div>
+          </div>
+          <ul class="offer-features">
+            <li>Choose 1 or 3 treatments</li>
+            <li>Thai · Body Scrub · Foot</li>
+            <li>Body Wrap · Aroma Massage</li>
+            <li>Ultimate relaxation journey</li>
+          </ul>
+          <button class="offer-btn" onclick="scrollToHero()">
+            Request an Appointment
+          </button>
+        </div>
+
+        <div class="offer-card reveal reveal-delay-2">
+          <div class="offer-name">Women's Special</div>
+          <div class="offer-price-wrap">
+            <div class="offer-price"><sup class="offer-sup">₹</sup>2,999</div>
+            <div class="offer-unit">/ 60 min</div>
+          </div>
+          <ul class="offer-features">
+            <li>Any 60-min massage</li>
+            <li>Only for women</li>
+            <li>Expert lady therapists</li>
+            <li>Prior appointment required</li>
+          </ul>
+          <button class="offer-btn" onclick="scrollToHero()">
+            Request an Appointment
+          </button>
+        </div>
+
+        <div class="offer-card reveal reveal-delay-3">
+          <div class="offer-name">Body Polish</div>
+          <div class="offer-price-wrap">
+            <div class="offer-price"><sup class="offer-sup">₹</sup>2,500</div>
+            <div class="offer-unit">from / 45 min</div>
+          </div>
+          <ul class="offer-features">
+            <li>Four skilled hands</li>
+            <li>45 / 60 / 90 / 120 min</li>
+            <li>Up to ₹4,500 for 120 min</li>
+            <li>Prior appointment required</li>
+          </ul>
+          <button class="offer-btn" onclick="scrollToHero()">
+            Request an Appointment
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── REVIEWS ─────────────────────────────────────────── -->
+    <section id="reviews">
+      <span class="section-label">Guest Stories</span>
+      <h2 class="section-title">What Our Guests Say</h2>
+
+      <div class="reviews-track">
+        <div class="review-card active" id="review-0">
+          <img
+            src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200"
+            alt="Photo of Priya Reddy"
+            class="review-avatar"
+          />
+          <div>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="review-author">Priya Reddy</div>
+            <div class="review-location">📍 Banjara Hills, Hyderabad</div>
+            <p class="review-text">
+              "The Thai massage was absolutely transformative. The therapist was
+              incredibly skilled and the ambience at The Royal is something else
+              — truly a sanctuary in the heart of the city."
+            </p>
+          </div>
+          <div class="review-quote" aria-hidden="true">"</div>
+        </div>
+
+        <div class="review-card" id="review-1">
+          <img
+            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200"
+            alt="Photo of Ananya Sharma"
+            class="review-avatar"
+          />
+          <div>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="review-author">Ananya Sharma</div>
+            <div class="review-location">📍 Kondapur, Hyderabad</div>
+            <p class="review-text">
+              "Took the Women's Special and it was worth every rupee. The
+              60-minute aroma massage left me completely rejuvenated. Staff is
+              professional, warm, and the facility is immaculate."
+            </p>
+          </div>
+          <div class="review-quote" aria-hidden="true">"</div>
+        </div>
+
+        <div class="review-card" id="review-2">
+          <img
+            src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=200"
+            alt="Photo of Vikram Nair"
+            class="review-avatar"
+          />
+          <div>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="review-author">Vikram Nair</div>
+            <div class="review-location">📍 HITEC City, Hyderabad</div>
+            <p class="review-text">
+              "Got the Diamond membership and it's the best investment for my
+              wellness. The Special Package deep tissue sessions have made a
+              huge difference. Highly recommend!"
+            </p>
+          </div>
+          <div class="review-quote" aria-hidden="true">"</div>
+        </div>
+
+        <div class="review-dots" role="tablist" aria-label="Review navigation">
+          <button
+            class="review-dot active"
+            onclick="showReview(0)"
+            aria-label="Review 1"
+            role="tab"
+            aria-selected="true"
+            id="dot-0"
+          ></button>
+          <button
+            class="review-dot"
+            onclick="showReview(1)"
+            aria-label="Review 2"
+            role="tab"
+            aria-selected="false"
+            id="dot-1"
+          ></button>
+          <button
+            class="review-dot"
+            onclick="showReview(2)"
+            aria-label="Review 3"
+            role="tab"
+            aria-selected="false"
+            id="dot-2"
+          ></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER (with contact form + map) ─────────────────── -->
+    <footer>
+      <div class="footer-contact" id="footer-contact">
+        <!-- Map / Info -->
+        <div>
+          <div
+            class="footer-map-placeholder"
+            aria-label="The Royal Salon & Spa location"
+          >
+            <span class="map-pin" aria-hidden="true">📍</span>
+            <span>Kothaguda, Hyderabad – 500081</span>
+            <span style="font-size: 0.72rem; opacity: 0.6; margin-top: 0.3rem"
+              >Open Daily · 10:00 AM – 9:00 PM</span
+            >
+            <span style="font-size: 0.7rem; opacity: 0.45; margin-top: 0.2rem"
+              >For Appointments: Call or WhatsApp</span
+            >
+            <span style="font-size: 0.68rem; opacity: 0.35; margin-top: 0.5rem"
+              >Replace with Google Maps embed</span
+            >
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="footer-contact-form">
+          <h3>Send Us a Message</h3>
+          <p>All fields are required. We'll respond within one business day.</p>
+
+          <form id="footerForm" novalidate>
+            <div class="form-group">
+              <label for="f-name">First / Last Name</label>
+              <input
+                type="text"
+                id="f-name"
+                name="name"
+                placeholder="Enter first and last name"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email Address</label>
+              <input
+                type="email"
+                id="f-email"
+                name="email"
+                placeholder="Enter email"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="f-subject">Subject</label>
+              <input
+                type="text"
+                id="f-subject"
+                name="subject"
+                placeholder="Appointment / Membership / Other"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="f-message">Message</label>
+              <textarea
+                id="f-message"
+                name="message"
+                placeholder="Your message…"
+                style="height: 120px"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="footerSubmitBtn">
+              <span id="footerSubmitText">Submit Message →</span>
+              <span id="footerSubmitSpinner" style="display: none">⏳</span>
+            </button>
+            <div class="form-status" id="footerFormStatus"></div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="#hero" class="footer-logo"
+          >The Royal <span>Salon &amp; Spa</span></a
+        >
+        <ul class="footer-links">
+          <li><a href="#services">Treatments</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="#footer-contact">Contact</a></li>
+        </ul>
+        <p class="footer-copy">
+          © 2025 The Royal Salon &amp; Spa · Est. 2008 · Banjara Hills,
+          Hyderabad
+        </p>
+      </div>
+    </footer>
+
+    <!-- ─── SCRIPTS ────────────────────────────────────────── -->
+    <script>
+      // ─── CONFIGURATION ─────────────────────────────────────
+      // Set your Web3Forms access key here (get free key at web3forms.com)
+      // OR set window.CONTACT_KEY before this script tag
+      const WEB3_KEY =
+        typeof CONTACT_KEY !== "undefined" && CONTACT_KEY !== "YOUR_KEY_HERE"
+          ? CONTACT_KEY
+          : "";
+      const CONTACT_EMAIL = "hello@theroyalsalonandspa.com";
+
+      // ─── Nav scroll ────────────────────────────────────────
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 40);
+        },
+        { passive: true },
+      );
+
+      // ─── Mobile menu ───────────────────────────────────────
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileClose = document.getElementById("mobileClose");
+      document
+        .querySelectorAll(".mm-link")
+        .forEach((l) =>
+          l.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          ),
+        );
+      hamburger.addEventListener("click", () =>
+        mobileMenu.classList.add("open"),
+      );
+      hamburger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ")
+          mobileMenu.classList.add("open");
+      });
+      mobileClose.addEventListener("click", () =>
+        mobileMenu.classList.remove("open"),
+      );
+
+      // ─── Scroll reveal ─────────────────────────────────────
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // ─── Reviews carousel ──────────────────────────────────
+      let currentReview = 0;
+      function showReview(idx) {
+        document
+          .querySelectorAll(".review-card")
+          .forEach((c, i) => c.classList.toggle("active", i === idx));
+        document.querySelectorAll(".review-dot").forEach((d, i) => {
+          d.classList.toggle("active", i === idx);
+          d.setAttribute("aria-selected", i === idx ? "true" : "false");
+        });
+        currentReview = idx;
+      }
+      setInterval(() => showReview((currentReview + 1) % 3), 6000);
+
+      // ─── Scroll to hero form ───────────────────────────────
+      function scrollToHero() {
+        document
+          .getElementById("h-name")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => document.getElementById("h-name").focus(), 600);
+      }
+
+      // ─── Date min ──────────────────────────────────────────
+      const dateInput = document.getElementById("h-date");
+      if (dateInput)
+        dateInput.setAttribute("min", new Date().toISOString().split("T")[0]);
+
+      // ─── Form state helper ─────────────────────────────────
+      function setFormState(
+        btnId,
+        txtId,
+        spinnerId,
+        statusId,
+        state,
+        message,
+        defaultLabel,
+      ) {
+        const btn = document.getElementById(btnId);
+        const txt = document.getElementById(txtId);
+        const spinner = document.getElementById(spinnerId);
+        const status = document.getElementById(statusId);
+        status.className = "form-status";
+
+        if (state === "loading") {
+          btn.disabled = true;
+          txt.textContent = "Sending…";
+          if (spinner) spinner.style.display = "inline";
+        } else {
+          btn.disabled = false;
+          txt.textContent = defaultLabel;
+          if (spinner) spinner.style.display = "none";
+          if (message) {
+            status.textContent = message;
+            status.classList.add(state); // 'success' or 'error'
+          }
+        }
+      }
+
+      // ─── Send via Web3Forms OR fallback mailto ──────────────
+      async function sendForm(payload, onSuccess, onError) {
+        if (!WEB3_KEY) {
+          // Fallback: open mailto
+          const sub = encodeURIComponent(
+            payload.subject || "Enquiry — The Royal Salon & Spa",
+          );
+          const lines = Object.entries(payload)
+            .filter(([k]) => k !== "access_key" && k !== "subject")
+            .map(([k, v]) => `${k}: ${v}`)
+            .join("\n");
+          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${sub}&body=${encodeURIComponent(lines)}`;
+          onSuccess("Your email app has opened. We'll respond shortly!");
+          return;
+        }
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({ access_key: WEB3_KEY, ...payload }),
+          });
+          const data = await res.json();
+          if (!res.ok || !data.success)
+            throw new Error(data.message || "Submission failed");
+          onSuccess("✓ Received! We'll confirm your appointment shortly.");
+        } catch (err) {
+          onError("Could not send. Please call or WhatsApp us directly.");
+        }
+      }
+
+      // ─── Hero booking form ─────────────────────────────────
+      document
+        .getElementById("heroForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const name = document.getElementById("h-name").value.trim();
+          const phone = document.getElementById("h-phone").value.trim();
+          if (!name || !phone) {
+            setFormState(
+              "heroSubmitBtn",
+              "heroSubmitText",
+              "heroSubmitSpinner",
+              "heroFormStatus",
+              "error",
+              "Please enter your name and phone number.",
+              "Request Appointment",
+            );
+            return;
+          }
+          setFormState(
+            "heroSubmitBtn",
+            "heroSubmitText",
+            "heroSubmitSpinner",
+            "heroFormStatus",
+            "loading",
+            "",
+            "Request Appointment",
+          );
+
+          const payload = {
+            subject: `Appointment Request — ${name} | The Royal Salon & Spa`,
+            Name: name + " " + document.getElementById("h-lname").value,
+            Phone: phone,
+            Email: document.getElementById("h-email").value,
+            Treatment: document.getElementById("h-service").value,
+            "Preferred Date": document.getElementById("h-date").value,
+            "Preferred Time": document.getElementById("h-time").value,
+          };
+
+          await sendForm(
+            payload,
+            (msg) => {
+              setFormState(
+                "heroSubmitBtn",
+                "heroSubmitText",
+                "heroSubmitSpinner",
+                "heroFormStatus",
+                "success",
+                msg,
+                "Request Appointment",
+              );
+              this.reset();
+            },
+            (msg) =>
+              setFormState(
+                "heroSubmitBtn",
+                "heroSubmitText",
+                "heroSubmitSpinner",
+                "heroFormStatus",
+                "error",
+                msg,
+                "Request Appointment",
+              ),
+          );
+        });
+
+      // ─── Footer contact form ───────────────────────────────
+      document
+        .getElementById("footerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const name = document.getElementById("f-name").value.trim();
+          const email = document.getElementById("f-email").value.trim();
+          const subject = document.getElementById("f-subject").value.trim();
+          const message = document.getElementById("f-message").value.trim();
+
+          if (!name || !email || !subject || !message) {
+            setFormState(
+              "footerSubmitBtn",
+              "footerSubmitText",
+              "footerSubmitSpinner",
+              "footerFormStatus",
+              "error",
+              "Please fill in all fields.",
+              "Submit Message →",
+            );
+            return;
+          }
+          setFormState(
+            "footerSubmitBtn",
+            "footerSubmitText",
+            "footerSubmitSpinner",
+            "footerFormStatus",
+            "loading",
+            "",
+            "Submit Message →",
+          );
+
+          const payload = {
+            subject: `${subject} — The Royal Salon & Spa`,
+            Name: name,
+            Email: email,
+            Subject: subject,
+            Message: message,
+          };
+
+          await sendForm(
+            payload,
+            (msg) => {
+              setFormState(
+                "footerSubmitBtn",
+                "footerSubmitText",
+                "footerSubmitSpinner",
+                "footerFormStatus",
+                "success",
+                msg,
+                "Submit Message →",
+              );
+              this.reset();
+            },
+            (msg) =>
+              setFormState(
+                "footerSubmitBtn",
+                "footerSubmitText",
+                "footerSubmitSpinner",
+                "footerFormStatus",
+                "error",
+                msg,
+                "Submit Message →",
+              ),
+          );
+        });
+
+      // ─── Newsletter form ───────────────────────────────────
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const email = document.getElementById("nl-email").value.trim();
+          if (!email) return;
+          const btn = document.getElementById("nlBtn");
+          btn.disabled = true;
+          btn.textContent = "Subscribing…";
+
+          await sendForm(
+            {
+              subject: "Newsletter Subscription — The Royal Salon & Spa",
+              Email: email,
+            },
+            () => {
+              btn.textContent = "✓ Subscribed!";
+              document.getElementById("nl-email").value = "";
+            },
+            () => {
+              btn.disabled = false;
+              btn.textContent = "Subscribe →";
+            },
+          );
+        });
+    </script>
+  </body>
+</html>
